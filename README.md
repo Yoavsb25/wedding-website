@@ -23,7 +23,7 @@ The app builds to `dist/`. For GitHub Pages (project page), the workflow in `.gi
 
 ## Content
 
-- **Site copy & venue:** `src/data/site.js` — title, couple names, date, venue, address, maps URL, RSVP note, form embed URL.
+- **Site copy & venue:** `src/data/site.js` — title, couple names, date, venue, address, maps URL, RSVP note and deadline, form embed URL, parking instructions.
 - **Schedule:** `src/data/schedule.js` — array of `{ time, title }`.
 - **Countdown phrases:** `src/data/countdownCopy.js` — poetic microcopy by "days until" bucket.
 

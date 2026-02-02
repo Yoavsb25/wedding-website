@@ -16,6 +16,9 @@ export const site = {
   venueImages: ['/images/venue.jpeg', '/images/backyard.jpeg'],
   rsvpDeadline: 'Respond by August 1, 2026',
   rsvpNote: 'Please RSVP by August 1, 2026.',
-  rsvpFormEmbedUrl: 'https://docs.google.com/forms/d/e/1FAIpQLScPlaceholder/viewform?embedded=true',
+  rsvpFormEmbedUrl: 'https://forms.gle/kZd1hA9x7wyyDs4U7',
   socialUrl: '',
+  /** Parking instructions for guests; replace with real details before launch. */
+  parkingInstructions:
+    'Parking details will be available closer to the date. The venue is located at 48 Rothschild Boulevard with nearby street and garage options.',
 };

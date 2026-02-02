@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { site } from '../data/site';
 import { duration, easing } from '../theme/tokens';
 
 const container = {
@@ -34,14 +35,12 @@ export default function Parking() {
       <div className="max-w-[700px] mx-auto">
         <motion.h2
           variants={item}
-          className="font-display text-2xl md:text-3xl uppercase tracking-widest text-brand-900 mb-6 text-center"
+          className="font-display text-section uppercase text-brand-900 mb-6 text-center"
         >
           Parking
         </motion.h2>
         <motion.div variants={item} className="card">
-          <p className="text-brand-800">
-            Parking details will be available closer to the date. The venue is located at 48 Rothschild Boulevard with nearby street and garage options.
-          </p>
+          <p className="text-brand-800">{site.parkingInstructions}</p>
         </motion.div>
       </div>
     </motion.section>

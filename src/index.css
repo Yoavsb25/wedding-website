@@ -15,4 +15,14 @@
   .card {
     @apply rounded-2xl border border-brand-200 p-6 bg-white/80;
   }
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      theme('colors.brand.300 / 0.4') 20%,
+      theme('colors.brand.300 / 0.4') 80%,
+      transparent
+    );
+  }
 }

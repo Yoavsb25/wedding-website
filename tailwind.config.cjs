@@ -33,6 +33,13 @@ module.exports = {
         petal: 'cubic-bezier(0.25, 0.1, 0.25, 1)',
         soft: 'cubic-bezier(0.4, 0, 0.2, 1)',
       },
+      fontSize: {
+        hero: ['clamp(2rem, 5vw, 3.5rem)', { lineHeight: '1.2', letterSpacing: '0.2em' }],
+        'hero-sub': ['clamp(2.5rem, 6vw, 4rem)', { lineHeight: '1.15' }],
+        section: ['clamp(1.5rem, 3vw, 2rem)', { lineHeight: '1.3', letterSpacing: '0.15em' }],
+        body: ['1rem', { lineHeight: '1.6' }],
+        small: ['0.875rem', { lineHeight: '1.5' }],
+      },
     },
   },
   plugins: [require('tailwindcss-animate')],

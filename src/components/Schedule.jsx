@@ -37,7 +37,7 @@ export default function Schedule() {
       <div className="max-w-[700px] mx-auto">
         <motion.h2
           variants={item}
-          className="font-display text-2xl md:text-3xl uppercase tracking-widest text-brand-900 mb-10 text-center"
+          className="font-display text-section uppercase text-brand-900 mb-10 text-center"
         >
           Schedule
         </motion.h2>
@@ -47,6 +47,8 @@ export default function Schedule() {
               key={`${entry.time}-${entry.title}`}
               variants={item}
               className="card flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6"
+              whileHover={!shouldReduceMotion ? { y: -2, boxShadow: '0 8px 24px rgba(26,35,50,0.08)' } : undefined}
+              transition={{ duration: duration.motion / 1000, ease: easing.soft }}
             >
               <time dateTime={entry.time} className="font-display text-xl text-brand-700 shrink-0">
                 {entry.time}

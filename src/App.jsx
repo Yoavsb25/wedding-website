@@ -5,12 +5,16 @@ import Schedule from './components/Schedule';
 import Location from './components/Location';
 import Parking from './components/Parking';
 import RsvpEmbed from './components/RsvpEmbed';
+import FloatingNav from './components/FloatingNav';
+import EventSchema from './components/EventSchema';
 import { site } from './data/site';
 
 function App() {
   const shouldReduceMotion = useReducedMotion();
 
   return (
+    <>
+      <EventSchema />
     <motion.div
       initial={shouldReduceMotion ? false : { opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
@@ -20,6 +24,7 @@ function App() {
       }}
       className="min-h-screen font-body text-brand-900 bg-brand-50 overflow-x-hidden"
     >
+      <FloatingNav />
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-20 focus:px-4 focus:py-2 focus:bg-brand-500 focus:text-white focus:rounded-xl"
@@ -28,9 +33,13 @@ function App() {
       </a>
       <main id="main-content" className="mx-auto max-w-full" tabIndex={-1}>
         <Hero />
+        <div className="section-divider mx-auto max-w-[700px]" aria-hidden="true" />
         <Schedule />
+        <div className="section-divider mx-auto max-w-[700px]" aria-hidden="true" />
         <Location />
+        <div className="section-divider mx-auto max-w-[700px]" aria-hidden="true" />
         <Parking />
+        <div className="section-divider mx-auto max-w-[700px]" aria-hidden="true" />
         <RsvpEmbed />
       </main>
       <footer className="py-12 md:py-16 text-center bg-brand-900 text-brand-100 mt-16">
@@ -59,6 +68,7 @@ function App() {
         <p className="mt-8 text-brand-500 text-xs">© {new Date().getFullYear()} – With love</p>
       </footer>
     </motion.div>
+    </>
   );
 }
 
