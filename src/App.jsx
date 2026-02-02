@@ -5,7 +5,6 @@ import Schedule from './components/Schedule';
 import Location from './components/Location';
 import Parking from './components/Parking';
 import RsvpEmbed from './components/RsvpEmbed';
-import FloatingNav from './components/FloatingNav';
 import EventSchema from './components/EventSchema';
 import { site } from './data/site';
 
@@ -24,7 +23,6 @@ function App() {
       }}
       className="min-h-screen font-body text-brand-900 bg-brand-50 overflow-x-hidden"
     >
-      <FloatingNav />
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-20 focus:px-4 focus:py-2 focus:bg-brand-500 focus:text-white focus:rounded-xl"

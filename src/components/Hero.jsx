@@ -50,7 +50,6 @@ export default function Hero() {
         className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_0%,rgba(90,111,148,0.08),transparent_50%)]"
         aria-hidden="true"
       />
-      <div className="absolute top-8 left-8 w-24 h-24 md:w-32 md:h-32 rounded-full border border-brand-400/30" aria-hidden="true" />
       <div className="absolute top-12 right-8 w-16 h-16 md:w-24 md:h-24 rounded-full border border-brand-400/20" aria-hidden="true" />
 
       <div className="relative z-10 max-w-[700px] mx-auto space-y-4 md:space-y-6">
@@ -71,7 +70,7 @@ export default function Hero() {
         </motion.div>
         <motion.div variants={item} className="overflow-hidden rounded-2xl shadow-md mx-auto max-w-xs">
           <motion.img
-            src={`${import.meta.env.BASE_URL}images/couple.svg`}
+            src={`${import.meta.env.BASE_URL}images/Cuple.PNG`}
             alt="Illustration of the couple"
             className="w-full h-auto block"
             loading="eager"

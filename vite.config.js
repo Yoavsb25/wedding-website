@@ -11,7 +11,7 @@ export default defineConfig({
       manifest: {
         name: 'Our Wedding',
         short_name: 'Wedding',
-        description: 'Maya & Yoav – September 14, 2026 at R48 Hotel and Garden, Tel Aviv.',
+        description: 'Maya & Yoav – May 30, 2026 at R48 Hotel and Garden, Tel Aviv.',
         theme_color: '#1a2332',
         background_color: '#f5f7fa',
         display: 'standalone',
