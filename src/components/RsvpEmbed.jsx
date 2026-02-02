@@ -39,12 +39,22 @@ export default function RsvpEmbed() {
       <div className="max-w-[700px] mx-auto">
         <motion.h2
           variants={item}
-          className="font-display text-2xl md:text-3xl uppercase tracking-widest text-brand-900 mb-4 text-center"
+          className="font-display text-section uppercase text-brand-900 mb-4 text-center"
         >
           RSVP
         </motion.h2>
-        <motion.p variants={item} className="text-center text-brand-800 mb-8">
+        <motion.p variants={item} className="text-center text-brand-800 mb-4">
           {site.rsvpNote}
+        </motion.p>
+        <motion.p variants={item} className="text-center mb-6">
+          <a
+            href={site.rsvpFormEmbedUrl.replace('/viewform?embedded=true', '/viewform')}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-brand-600 hover:text-brand-800 underline focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 rounded"
+          >
+            Open form in new tab
+          </a>
         </motion.p>
         <motion.div variants={item} className="relative min-h-[400px] rounded-2xl overflow-hidden bg-brand-100">
           <AnimatePresence mode="wait">

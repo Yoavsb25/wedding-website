@@ -1,7 +1,9 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { site } from '../data/site';
-import { duration, easing, delay } from '../theme/tokens';
+import { duration, easing } from '../theme/tokens';
 import Countdown from './Countdown';
+import AddToCalendar from './AddToCalendar';
+import ShareButton from './ShareButton';
 
 const container = {
   hidden: { opacity: 0 },
@@ -45,20 +47,19 @@ export default function Hero() {
       custom={{ reduced: shouldReduceMotion }}
     >
       <div
-        className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_0%,rgba(213,164,138,0.12),transparent_50%)]"
+        className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_0%,rgba(90,111,148,0.08),transparent_50%)]"
         aria-hidden="true"
       />
-      <div className="absolute top-8 left-8 w-24 h-24 md:w-32 md:h-32 rounded-full border border-brand-400/30" aria-hidden="true" />
       <div className="absolute top-12 right-8 w-16 h-16 md:w-24 md:h-24 rounded-full border border-brand-400/20" aria-hidden="true" />
 
       <div className="relative z-10 max-w-[700px] mx-auto space-y-4 md:space-y-6">
         <motion.h1
           variants={item}
-          className="font-display text-3xl md:text-4xl uppercase tracking-[0.2em] text-brand-900"
+          className="font-display text-hero uppercase text-brand-900"
         >
           We're Getting Married
         </motion.h1>
-        <motion.p variants={item} className="font-display text-5xl md:text-6xl text-brand-900">
+        <motion.p variants={item} className="font-display text-hero-sub text-brand-900">
           {site.coupleNames}
         </motion.p>
         <motion.p variants={item} className="text-lg text-brand-800">
@@ -67,15 +68,18 @@ export default function Hero() {
         <motion.div variants={item}>
           <Countdown />
         </motion.div>
-        <motion.img
-          variants={item}
-          src={`${import.meta.env.BASE_URL}images/couple.svg`}
-          alt="Illustration of the couple"
-          className="mx-auto max-w-xs rounded-2xl shadow-md w-full h-auto"
-          loading="eager"
-          width={320}
-          height={320}
-        />
+        <motion.div variants={item} className="overflow-hidden rounded-2xl shadow-md mx-auto max-w-xs">
+          <motion.img
+            src={`${import.meta.env.BASE_URL}images/Cuple.PNG`}
+            alt="Illustration of the couple"
+            className="w-full h-auto block"
+            loading="eager"
+            width={320}
+            height={320}
+            whileHover={!shouldReduceMotion ? { scale: 1.03 } : undefined}
+            transition={{ duration: duration.motion / 1000, ease: easing.soft }}
+          />
+        </motion.div>
         <motion.a
           href="#rsvp"
           variants={item}
@@ -86,6 +90,10 @@ export default function Hero() {
         >
           RSVP
         </motion.a>
+        <motion.div variants={item} className="flex flex-wrap items-center justify-center gap-3 mt-4">
+          <AddToCalendar />
+          <ShareButton />
+        </motion.div>
         <motion.a
           href="#schedule"
           variants={item}

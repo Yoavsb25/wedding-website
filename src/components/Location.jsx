@@ -37,7 +37,7 @@ export default function Location() {
       <div className="max-w-[900px] mx-auto">
         <motion.h2
           variants={item}
-          className="font-display text-2xl md:text-3xl uppercase tracking-widest text-brand-900 mb-6 text-center"
+          className="font-display text-section uppercase text-brand-900 mb-6 text-center"
         >
           Location
         </motion.h2>
@@ -49,11 +49,14 @@ export default function Location() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {site.venueImages.map((path, i) => (
                 <div key={path} className="rounded-2xl overflow-hidden shadow-md aspect-[4/3] min-h-[240px]">
-                  <img
+                  <motion.img
                     src={`${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`}
                     alt={i === 0 ? `${site.venueFullName} – exterior` : `${site.venueFullName} – garden`}
                     className="w-full h-full object-cover"
                     loading="lazy"
+                    sizes="(min-width: 640px) 50vw, 100vw"
+                    whileHover={!shouldReduceMotion ? { scale: 1.05 } : undefined}
+                    transition={{ duration: duration.motion / 1000, ease: easing.soft }}
                   />
                 </div>
               ))}
