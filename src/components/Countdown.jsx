@@ -20,6 +20,20 @@ function pad(n) {
   return String(n).padStart(2, '0');
 }
 
+const ringIcon = (
+  <svg className="w-5 h-5 text-brand-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+    <circle cx="12" cy="12" r="4" />
+    <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+  </svg>
+);
+
+const partsConfig = [
+  { key: 'days', label: 'days' },
+  { key: 'hours', label: 'hours' },
+  { key: 'minutes', label: 'minutes' },
+  { key: 'seconds', label: 'seconds' },
+];
+
 export default function Countdown() {
   const [timeLeft, setTimeLeft] = useState(() => getTimeLeft(site.dateISO));
   const shouldReduceMotion = useReducedMotion();
@@ -33,47 +47,63 @@ export default function Countdown() {
 
   if (timeLeft === null) {
     return (
-      <p className="text-lg text-brand-700 font-display" role="status" aria-live="polite">
-        We did!
-      </p>
+      <div className="text-center" role="status" aria-live="polite">
+        <p className="font-display text-2xl text-brand-700">We did!</p>
+      </div>
     );
   }
 
-  const { days, hours, minutes, seconds } = timeLeft;
-  const parts = [
-    { value: days, label: 'days' },
-    { value: hours, label: 'hours' },
-    { value: minutes, label: 'minutes' },
-    { value: seconds, label: 'seconds' },
-  ];
-
   return (
-    <div className="text-center space-y-2" role="status" aria-live="polite" aria-atomic="true">
-      <p className="text-lg text-brand-700 font-display">
-        {parts.map(({ value, label }, i) => (
-          <span key={label}>
-            {i > 0 && <span className="text-brand-400 mx-1" aria-hidden="true">·</span>}
-            <span className="tabular-nums">
-              <AnimatePresence mode="wait" initial={false}>
-                <motion.span
-                  key={`${label}-${value}`}
-                  initial={shouldReduceMotion ? false : { opacity: 0, y: 4 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={shouldReduceMotion ? undefined : { opacity: 0, y: -4 }}
-                  transition={{ duration: duration.countdown / 1000, ease: easing.petal }}
-                  className="inline-block"
-                >
-                  {label === 'days' ? value : pad(value)}
-                </motion.span>
-              </AnimatePresence>
-            </span>
-            <span className="text-brand-600 font-body text-sm ml-0.5">{label}</span>
-          </span>
-        ))}
-      </p>
-      <p className="text-brand-600 font-body text-sm">
-        until we say &ldquo;I do&rdquo;
-      </p>
+    <div className="w-full max-w-[560px] mx-auto" role="status" aria-live="polite" aria-atomic="true">
+      {/* Header: Countdown to "I do" with ring icon and decorative line */}
+      <div className="flex flex-col items-center gap-3 mb-6">
+        <div className="flex items-center gap-2">
+          <span className="h-px w-6 bg-brand-300/60" aria-hidden />
+          {ringIcon}
+          <span className="h-px w-6 bg-brand-300/60" aria-hidden />
+        </div>
+        <h3 className="font-display text-lg md:text-xl text-brand-800 tracking-wide">
+          Countdown to &ldquo;I do&rdquo;
+        </h3>
+        <div className="flex items-center gap-2 w-full max-w-[200px]">
+          <span className="h-px flex-1 bg-brand-300/60" aria-hidden />
+          <span className="w-1.5 h-1.5 rounded-full bg-brand-400/80" aria-hidden />
+          <span className="h-px flex-1 bg-brand-300/60" aria-hidden />
+        </div>
+      </div>
+
+      {/* Four glass-style countdown cards */}
+      <div className="grid grid-cols-4 gap-2 md:gap-4">
+        {partsConfig.map(({ key, label }) => {
+          const value = timeLeft[key];
+          const display = key === 'days' ? value : pad(value);
+          return (
+            <motion.div
+              key={key}
+              className="rounded-xl md:rounded-2xl border border-brand-200/90 bg-white/85 backdrop-blur-sm shadow-sm py-4 px-2 md:py-5 md:px-3 text-center"
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: duration.motion / 1000, ease: easing.petal }}
+            >
+              <div className="font-display text-2xl md:text-3xl lg:text-4xl text-brand-900 tabular-nums leading-tight">
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.span
+                    key={`${key}-${value}`}
+                    initial={shouldReduceMotion ? false : { opacity: 0, y: 4 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={shouldReduceMotion ? undefined : { opacity: 0, y: -4 }}
+                    transition={{ duration: duration.countdown / 1000, ease: easing.petal }}
+                    className="inline-block"
+                  >
+                    {display}
+                  </motion.span>
+                </AnimatePresence>
+              </div>
+              <p className="font-body text-xs md:text-sm text-brand-600 mt-1">{label}</p>
+            </motion.div>
+          );
+        })}
+      </div>
     </div>
   );
 }
