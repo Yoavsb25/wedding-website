@@ -9,7 +9,7 @@ export default defineConfig({
       registerType: 'autoUpdate',
       base: '/wedding-website/',
       manifest: {
-        name: 'Our Wedding',
+        name: 'Maya & Yoav\'s Wedding',
         short_name: 'Wedding',
         description: 'Maya & Yoav – May 30, 2026 at R48 Hotel and Garden, Tel Aviv.',
         theme_color: '#1a2332',

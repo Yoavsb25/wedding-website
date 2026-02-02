@@ -10,7 +10,7 @@ export default function ShareButton() {
   const handleShare = useCallback(async () => {
     setError(false);
     const url = window.location.href;
-    const title = document.title || 'Our Wedding';
+    const title = document.title || 'Maya & Yoav\'s Wedding';
 
     if (typeof navigator.share === 'function') {
       try {
