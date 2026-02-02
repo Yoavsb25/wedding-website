@@ -43,7 +43,7 @@ export function buildIcsContent(site) {
 export function buildGoogleCalendarUrl(site) {
   const start = new Date(site.dateISO);
   const end = new Date(start.getTime() + 4 * 60 * 60 * 1000);
-  const title = site.title || `${site.coupleNames || 'Wedding'} – Save the date`;
+  const title = `${site.coupleNames || 'Maya & Yoav'} – Save the date`;
   const location = [site.venueFullName, site.address].filter(Boolean).join(', ');
   const params = new URLSearchParams({
     action: 'TEMPLATE',
