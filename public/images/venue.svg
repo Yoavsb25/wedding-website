@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="800" height="320" viewBox="0 0 800 320" fill="none">
-  <rect width="800" height="320" fill="#e8ecf2"/>
-  <rect x="200" y="120" width="400" height="180" rx="8" fill="#455a7a"/>
-  <rect x="280" y="180" width="80" height="120" fill="#5a6f94"/>
-  <rect x="440" y="180" width="80" height="120" fill="#5a6f94"/>
-  <rect x="600" y="180" width="80" height="120" fill="#5a6f94"/>
-  <text x="400" y="100" text-anchor="middle" font-family="serif" font-size="20" fill="#364661">Add venue.jpg for hotel photo</text>
-</svg>

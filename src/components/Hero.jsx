@@ -63,36 +63,69 @@ export default function Hero() {
           {site.coupleNames}
         </motion.p>
         <motion.p variants={item} className="text-lg text-brand-800">
-          {dateFormatted} · {site.venueFullName}, Tel Aviv
+          {dateFormatted}
         </motion.p>
+        <motion.p variants={item} className="text-lg text-brand-800">
+          {site.venueFullName}, Tel Aviv
+        </motion.p>
+
         <motion.div variants={item}>
           <Countdown />
         </motion.div>
-        <motion.div variants={item} className="overflow-hidden rounded-2xl shadow-md mx-auto max-w-xs">
-          <motion.img
-            src={`${import.meta.env.BASE_URL}images/Cuple.PNG`}
-            alt="Illustration of the couple"
-            className="w-full h-auto block"
-            loading="eager"
-            width={320}
-            height={320}
-            whileHover={!shouldReduceMotion ? { scale: 1.03 } : undefined}
-            transition={{ duration: duration.motion / 1000, ease: easing.soft }}
-          />
-        </motion.div>
-        <motion.a
-          href="#rsvp"
+        <motion.img
           variants={item}
-          className="btn inline-block mt-2"
-          whileHover={!shouldReduceMotion ? { scale: 1.02, boxShadow: '0 4px 14px rgba(0,0,0,0.15)' } : undefined}
-          whileTap={!shouldReduceMotion ? { scale: 0.98 } : undefined}
+          src={`${import.meta.env.BASE_URL}images/image.png`}
+          alt="Illustration of the couple"
+          className="max-w-xs mx-auto w-full h-auto block"
+          loading="eager"
+          width={320}
+          height={320}
+          whileHover={!shouldReduceMotion ? { scale: 1.03 } : undefined}
           transition={{ duration: duration.motion / 1000, ease: easing.soft }}
-        >
-          RSVP
-        </motion.a>
-        <motion.div variants={item} className="flex flex-wrap items-center justify-center gap-3 mt-4">
-          <AddToCalendar />
-          <ShareButton />
+        />
+
+        {/* Mark your calendars & RSVP */}
+        <motion.div variants={item} className="w-full mt-6">
+          <div className="flex items-center justify-center gap-3 text-brand-600 text-sm">
+            <span className="flex-1 max-w-12 h-px bg-brand-300/60" aria-hidden="true" />
+            <span className="w-1.5 h-1.5 rounded-full bg-brand-300/80" aria-hidden="true" />
+            <span className="inline-flex items-center gap-2 shrink-0 font-medium">
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              Mark your calendars & RSVP
+            </span>
+            <span className="w-1.5 h-1.5 rounded-full bg-brand-300/80" aria-hidden="true" />
+            <span className="flex-1 max-w-12 h-px bg-brand-300/60" aria-hidden="true" />
+          </div>
+          <motion.a
+            href="#rsvp"
+            variants={item}
+            className="btn inline-flex items-center justify-center gap-2 mt-3"
+            whileHover={!shouldReduceMotion ? { scale: 1.03, boxShadow: '0 6px 20px rgba(38,50,72,0.25)' } : undefined}
+            whileTap={!shouldReduceMotion ? { scale: 0.98 } : undefined}
+            transition={{ duration: duration.motion / 1000, ease: easing.soft }}
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            RSVP Now
+          </motion.a>
+        </motion.div>
+
+        {/* Add to Calendar */}
+        <motion.div variants={item} className="w-full mt-5">
+          <div className="flex items-center justify-center gap-3 text-brand-600 text-sm">
+            <span className="flex-1 max-w-12 h-px bg-brand-300/60" aria-hidden="true" />
+            <span className="w-1.5 h-1.5 rounded-full bg-brand-300/80" aria-hidden="true" />
+            <span className="shrink-0 font-medium">Add to Calendar</span>
+            <span className="w-1.5 h-1.5 rounded-full bg-brand-300/80" aria-hidden="true" />
+            <span className="flex-1 max-w-12 h-px bg-brand-300/60" aria-hidden="true" />
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-3 mt-3">
+            <AddToCalendar />
+            <ShareButton />
+          </div>
         </motion.div>
         <motion.a
           href="#schedule"
