@@ -1,5 +1,5 @@
 export const site = {
-  title: 'Our Wedding',
+  title: 'Maya & Yoav\'s Wedding',
   coupleNames: 'Maya & Yoav',
   dateISO: '2026-05-30T17:00:00+03:00',
   footerDate: 'May 30, 2026',
