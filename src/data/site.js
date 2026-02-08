@@ -1,8 +1,21 @@
+/**
+ * Site-wide wedding data: event details, venue, RSVP, and parking.
+ * Single source of truth for dates, URLs, and copy that varies per wedding.
+ * @module data/site
+ * @typedef {import('../types').Site} Site
+ */
+
+/** @type {Site} */
 export const site = {
+  /** Page title and default share text */
   title: 'Maya & Yoav\'s Wedding',
+  /** Couple names as displayed (e.g. hero, footer) */
   coupleNames: 'Maya & Yoav',
+  /** Wedding start in ISO 8601 (used for countdown, calendar, schema) */
   dateISO: '2026-05-30T17:00:00+03:00',
+  /** Short date for footer */
   footerDate: 'May 30, 2026',
+  /** Short venue name */
   venueName: 'R48',
   /** Display name; must match Google Maps: "R48 Hotel and Garden" */
   venueFullName: 'R48 Hotel and Garden',

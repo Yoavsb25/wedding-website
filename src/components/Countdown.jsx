@@ -1,7 +1,10 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { site } from '../data/site';
+import { copy } from '../data/copy';
+import { COUNTDOWN_INTERVAL_MS } from '../constants';
 import { duration, easing } from '../theme/tokens';
+import { RingIcon } from './Icons';
 
 function getTimeLeft(dateISO) {
   const wedding = new Date(dateISO).getTime();
@@ -20,18 +23,11 @@ function pad(n) {
   return String(n).padStart(2, '0');
 }
 
-const ringIcon = (
-  <svg className="w-5 h-5 text-brand-500 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-    <circle cx="12" cy="12" r="4" />
-    <path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
-  </svg>
-);
-
 const partsConfig = [
-  { key: 'days', label: 'days' },
-  { key: 'hours', label: 'hours' },
-  { key: 'minutes', label: 'minutes' },
-  { key: 'seconds', label: 'seconds' },
+  { key: 'days', labelKey: 'days' },
+  { key: 'hours', labelKey: 'hours' },
+  { key: 'minutes', labelKey: 'minutes' },
+  { key: 'seconds', labelKey: 'seconds' },
 ];
 
 export default function Countdown() {
@@ -41,14 +37,14 @@ export default function Countdown() {
   useEffect(() => {
     const tick = () => setTimeLeft(getTimeLeft(site.dateISO));
     tick();
-    const interval = setInterval(tick, 1000);
+    const interval = setInterval(tick, COUNTDOWN_INTERVAL_MS);
     return () => clearInterval(interval);
   }, []);
 
   if (timeLeft === null) {
     return (
       <div className="text-center" role="status" aria-live="polite">
-        <p className="font-display text-2xl text-brand-700">We did!</p>
+        <p className="font-display text-2xl text-brand-700">{copy.weDid}</p>
       </div>
     );
   }
@@ -59,11 +55,11 @@ export default function Countdown() {
       <div className="flex flex-col items-center gap-3 mb-6">
         <div className="flex items-center gap-2">
           <span className="h-px w-6 bg-brand-300/60" aria-hidden />
-          {ringIcon}
+          <RingIcon />
           <span className="h-px w-6 bg-brand-300/60" aria-hidden />
         </div>
         <h3 className="font-display text-lg md:text-xl text-brand-800 tracking-wide">
-          Countdown to &ldquo;I do&rdquo;
+          {copy.countdownToIDo}
         </h3>
         <div className="flex items-center gap-2 w-full max-w-[200px]">
           <span className="h-px flex-1 bg-brand-300/60" aria-hidden />
@@ -74,7 +70,8 @@ export default function Countdown() {
 
       {/* Four glass-style countdown cards */}
       <div className="grid grid-cols-4 gap-2 md:gap-4">
-        {partsConfig.map(({ key, label }) => {
+        {partsConfig.map(({ key, labelKey }) => {
+          const label = copy.countdownLabels[labelKey];
           const value = timeLeft[key];
           const display = key === 'days' ? value : pad(value);
           return (
@@ -99,7 +96,7 @@ export default function Countdown() {
                   </motion.span>
                 </AnimatePresence>
               </div>
-              <p className="font-body text-xs md:text-sm text-brand-600 mt-1">{label}</p>
+              <p className="font-body text-xs md:text-sm text-brand-600 mt-1">{label ?? labelKey}</p>
             </motion.div>
           );
         })}

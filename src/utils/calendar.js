@@ -1,8 +1,14 @@
 /**
  * Generate .ics file content and Google Calendar URL for the wedding event.
- * Uses site.dateISO, title, location from site data.
+ * Uses site.dateISO, title, and location from site data.
+ * @module utils/calendar
  */
 
+/**
+ * Escape a string for use in .ics field values (backslash-escape special chars).
+ * @param {string} str - Raw string (e.g. title, location)
+ * @returns {string} Escaped string safe for VCALENDAR format
+ */
 function escapeIcs(str) {
   return String(str).replace(/\\/g, '\\\\').replace(/;/g, '\\;').replace(/,/g, '\\,').replace(/\n/g, '\\n');
 }
@@ -55,9 +61,10 @@ export function buildGoogleCalendarUrl(site) {
 }
 
 /**
- * Trigger download of .ics file.
- * @param {string} content
- * @param {string} filename
+ * Trigger download of .ics file in the browser.
+ * @param {string} content - Raw .ics file content
+ * @param {string} [filename='wedding-save-the-date.ics'] - Download filename
+ * @returns {void}
  */
 export function downloadIcs(content, filename = 'wedding-save-the-date.ics') {
   const blob = new Blob([content], { type: 'text/calendar;charset=utf-8' });

@@ -1,0 +1,30 @@
+---
+description: Wedding site project conventions and structure
+globs: 
+alwaysApply: true
+---
+
+# Wedding website – project conventions
+
+## Structure
+- **Sections** (Hero, Schedule, Location, Parking, RsvpEmbed) live in `src/components/` and use shared motion variants from `src/theme/motionVariants.js`.
+- **Data**: `src/data/site.js` (wedding details), `src/data/copy.js` (UI strings), `src/data/navLinks.js` (footer nav), `src/data/schedule.js` (timeline).
+- **Constants**: Use `src/constants.js` for magic values (e.g. `COUNTDOWN_INTERVAL_MS`, `SECTION_IDS`). Use `src/theme/tokens.js` for `duration`, `easing`, and `layout` (spacing classes).
+- **Types**: JSDoc types live in `src/types.js`; reference them in data files with `@type {import('../types').Site}` etc.
+
+## When adding or changing UI
+- Add or edit **copy** in `src/data/copy.js`; use `copy.key` in components. Do not hardcode section titles or button labels in JSX.
+- Add **nav links** in `src/data/navLinks.js` (id, href, labelKey). Keep `SECTION_IDS` in `constants.js` in sync with section `id` attributes.
+- Use **layout** from `src/theme/tokens.js` for section padding, viewport margin, min-heights (e.g. `layout.sectionPadding`, `layout.viewportMargin`).
+
+## Animations
+- Use **motion variants** from `src/theme/motionVariants.js`: `getHeroContainer()`, `getSectionContainerReveal()`, `sectionItem`, `scheduleItem`, `heroItem`, `timelineDot`.
+- Pass `custom={{ reduced: shouldReduceMotion }}` on section containers so reduced-motion preference is respected (zero stagger/delay).
+
+## Icons and components
+- Add **icons** in `src/components/Icons.jsx` as named exports; use them in components instead of inline SVGs.
+- **Barrel**: Export public components from `src/components/index.js`; import from `'./components'` in App.
+
+## General
+- Prefer existing constants and shared modules over new magic numbers or duplicated logic.
+- Keep section ids and nav link ids aligned so anchor navigation works.

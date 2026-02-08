@@ -1,57 +1,10 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { schedule } from '../data/schedule';
-import { duration, easing } from '../theme/tokens';
-
-const container = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.12,
-      delayChildren: 0.08,
-    },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: duration.motion / 1000, ease: easing.petal },
-  },
-};
-
-const timelineDot = {
-  hidden: { scale: 0, opacity: 0 },
-  visible: {
-    scale: 1,
-    opacity: 1,
-    transition: { duration: duration.motion / 1000, ease: easing.soft },
-  },
-};
-
-const icons = {
-  clock: (
-    <svg className="w-6 h-6 text-brand-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-      <circle cx="12" cy="12" r="10" />
-      <path d="M12 6v6l4 2" />
-    </svg>
-  ),
-  rings: (
-    <svg className="w-6 h-6 text-brand-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-      <circle cx="9" cy="12" r="4" />
-      <circle cx="15" cy="12" r="4" />
-    </svg>
-  ),
-  dinner: (
-    <svg className="w-6 h-6 text-brand-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-      <path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2" />
-      <path d="M7 2v20" />
-      <path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 2.2 1.8 4 4 4h2Zm0 0v7" />
-    </svg>
-  ),
-};
+import { copy } from '../data/copy';
+import { SECTION_IDS } from '../constants';
+import { duration, easing, layout } from '../theme/tokens';
+import { getSectionContainerReveal, scheduleItem, timelineDot } from '../theme/motionVariants';
+import { scheduleIcons } from './Icons';
 
 const iconKeys = ['clock', 'rings', 'dinner'];
 
@@ -60,17 +13,18 @@ export default function Schedule() {
 
   return (
     <motion.section
-      id="schedule"
-      className="py-16 md:py-24 px-4"
+      id={SECTION_IDS.SCHEDULE}
+      className={layout.sectionPadding}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: '-80px' }}
-      variants={container}
+      viewport={{ once: true, margin: layout.viewportMargin }}
+      variants={getSectionContainerReveal({ staggerChildren: 0.12, delayChildren: 0.08 })}
+      custom={{ reduced: shouldReduceMotion }}
     >
-      <div className="max-w-[900px] mx-auto">
+      <div className={`${layout.contentMaxWidthWide} mx-auto`}>
         {/* Decorative line above title */}
         <motion.div
-          variants={item}
+          variants={scheduleItem}
           className="flex items-center justify-center gap-2 mb-6"
           aria-hidden
         >
@@ -80,10 +34,10 @@ export default function Schedule() {
         </motion.div>
 
         <motion.h2
-          variants={item}
+          variants={scheduleItem}
           className="font-display text-section uppercase text-brand-900 mb-12 md:mb-16 text-center"
         >
-          Schedule
+          {copy.schedule}
         </motion.h2>
 
         {/* Desktop: horizontal cards with timeline line and markers below */}
@@ -92,7 +46,7 @@ export default function Schedule() {
             {schedule.map((entry, i) => (
               <motion.li
                 key={`${entry.time}-${entry.title}`}
-                variants={item}
+                variants={scheduleItem}
                 className="flex flex-col items-center"
               >
                 <motion.div
@@ -105,7 +59,10 @@ export default function Schedule() {
                   transition={{ duration: duration.motion / 1000, ease: easing.soft }}
                 >
                   <div className="flex justify-center text-brand-500" aria-hidden>
-                    {icons[iconKeys[i % iconKeys.length]]}
+                    {(() => {
+                      const Icon = scheduleIcons[iconKeys[i % iconKeys.length]];
+                      return Icon ? <Icon className="w-6 h-6 text-brand-500" /> : null;
+                    })()}
                   </div>
                   <time
                     dateTime={entry.time}
@@ -123,7 +80,7 @@ export default function Schedule() {
           </ul>
           {/* Timeline line with markers below cards (same grid as cards) */}
           <motion.div
-            variants={item}
+            variants={scheduleItem}
             className="relative grid grid-cols-3 gap-4 lg:gap-6 mt-6"
             aria-hidden
           >
@@ -149,7 +106,7 @@ export default function Schedule() {
           {schedule.map((entry, i) => (
             <motion.li
               key={`${entry.time}-${entry.title}`}
-              variants={item}
+              variants={scheduleItem}
               className="relative"
             >
               {/* Dot on line */}
@@ -168,7 +125,10 @@ export default function Schedule() {
               >
                 <div className="flex items-center gap-3 mb-2">
                   <span className="text-brand-500" aria-hidden>
-                    {icons[iconKeys[i % iconKeys.length]]}
+                    {(() => {
+                      const Icon = scheduleIcons[iconKeys[i % iconKeys.length]];
+                      return Icon ? <Icon className="w-6 h-6 text-brand-500" /> : null;
+                    })()}
                   </span>
                   <time dateTime={entry.time} className="font-display text-lg text-brand-700">
                     {entry.time}
