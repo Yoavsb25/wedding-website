@@ -2,7 +2,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { site } from '../data/site';
 import { copy } from '../data/copy';
 import { duration, easing, layout } from '../theme/tokens';
-import { SECTION_IDS } from '../constants';
+import { SECTION_IDS, TOUCH_TARGET_MIN_HEIGHT_PX } from '../constants';
 import { getHeroContainer, heroItem } from '../theme/motionVariants';
 import { CalendarIcon, EmailIcon } from './Icons';
 import Countdown from './Countdown';
@@ -105,7 +105,8 @@ export default function Hero() {
         <motion.a
           href="#schedule"
           variants={heroItem}
-          className={`inline-flex flex-col items-center gap-1 text-xs text-brand-300 tracking-widest ${layout.scrollCtaMarginTop} focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 rounded px-2 py-2 min-h-[44px] justify-center`}
+          className={`inline-flex flex-col items-center gap-1 text-xs text-brand-300 tracking-widest ${layout.scrollCtaMarginTop} focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 rounded px-2 py-2 justify-center`}
+          style={{ minHeight: TOUCH_TARGET_MIN_HEIGHT_PX }}
           aria-label={copy.scrollToScheduleAria}
         >
           <span className="text-lg" aria-hidden="true">↓</span>

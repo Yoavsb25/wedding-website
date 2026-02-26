@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { duration, easing, layout } from './theme/tokens';
+import { TOUCH_TARGET_MIN_HEIGHT_PX } from './constants';
 import { Hero, Schedule, Location, Parking, RsvpEmbed, EventSchema } from './components';
 import { site } from './data/site';
 import { copy } from './data/copy';
@@ -56,7 +57,8 @@ function App() {
             <span key={link.id} className="inline-flex items-center gap-x-4">
               <a
                 href={link.href}
-                className="text-brand-300 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 rounded px-2 py-2 min-h-[44px] inline-flex items-center"
+                className="text-brand-300 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 rounded px-2 py-2 inline-flex items-center"
+                style={{ minHeight: TOUCH_TARGET_MIN_HEIGHT_PX }}
               >
                 {copy[link.labelKey]}
               </a>
