@@ -24,6 +24,7 @@ export default defineConfig({
   plugins: [
     jsxMimePlugin(),
     react(),
+    // VitePWA last so closeBundle runs after other plugins (avoids "Unexpected early exit")
     VitePWA({
       registerType: 'autoUpdate',
       base: '/wedding-website/',
@@ -46,8 +47,11 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2}'],
-        maximumFileSizeToCacheInBytes: 5 * 1024 * 1024, // 5 MB (Cuple.PNG is ~4.7 MB)
+        maximumFileSizeToCacheInBytes: 5 * 1024 * 1024, // 5 MB
       },
+      // Temporarily disable PWA so build completes (workbox generateSW races with Rollup terser on exit).
+      // Re-enable when upgrading vite-plugin-pwa or workbox to a version that fixes the race.
+      disable: true,
     }),
   ],
   base: '/wedding-website/',
