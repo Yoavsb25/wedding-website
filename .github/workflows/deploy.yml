@@ -1,5 +1,6 @@
 name: Deploy to GitHub Pages
 
+# Deploys the built dist/ (not the repo root). Required: Settings → Pages → Source = "GitHub Actions".
 # Run on every push to main (including every merge into main)
 on:
   push:

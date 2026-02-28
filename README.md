@@ -17,7 +17,9 @@ Open [http://localhost:5173](http://localhost:5173).
 npm run build
 ```
 
-The app builds to `dist/`. For GitHub Pages (project page), the workflow in `.github/workflows/deploy.yml` runs on push to `main`. Set **Settings → Pages → Source** to "GitHub Actions" and use the `github-pages` environment.
+The app builds to `dist/`. For GitHub Pages (project page), the workflow in `.github/workflows/deploy.yml` runs on push to `main`.
+
+**Required:** In the repo go to **Settings → Pages → Build and deployment → Source** and select **"GitHub Actions"** (not "Deploy from a branch"). Otherwise the site serves the raw repo and you'll see "MIME type text/jsx" and 404s; the built app is only served when the source is GitHub Actions.
 
 **Base path:** If the site is at `https://<user>.github.io/wedding-website/`, `vite.config.js` already has `base: '/wedding-website/'`. For a user/org site at the root, set `base: '/'` in `vite.config.js`.
 
