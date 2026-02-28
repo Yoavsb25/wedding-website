@@ -72,17 +72,21 @@ export default function Hero() {
         <motion.div variants={item}>
           <Countdown />
         </motion.div>
-        <motion.img
+        <motion.div
           variants={item}
-          src={`${import.meta.env.BASE_URL}images/Cuple.png`}
-          alt="Illustration of the couple"
-          className="max-w-xs mx-auto w-full h-auto block"
-          loading="eager"
-          width={320}
-          height={320}
-          whileHover={!shouldReduceMotion ? { scale: 1.03 } : undefined}
-          transition={{ duration: duration.motion / 1000, ease: easing.soft }}
-        />
+          className="w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] md:ml-0 md:mr-0 md:w-auto mt-4"
+        >
+          <motion.img
+            src={`${import.meta.env.BASE_URL}images/Cuple.png`}
+            alt="Illustration of the couple"
+            className="w-full max-w-none h-auto block md:max-w-xs md:mx-auto"
+            loading="eager"
+            width={320}
+            height={320}
+            whileHover={!shouldReduceMotion ? { scale: 1.03 } : undefined}
+            transition={{ duration: duration.motion / 1000, ease: easing.soft }}
+          />
+        </motion.div>
 
         {/* Mark your calendars & RSVP */}
         <motion.div variants={item} className="w-full mt-6">
