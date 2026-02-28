@@ -1,5 +1,6 @@
 # Dependencies
 node_modules
+.venv
 
 # Build output
 dist
@@ -10,7 +11,6 @@ dist-ssr
 .env
 .env.*
 !.env.example
-.venv
 
 # Logs
 logs
