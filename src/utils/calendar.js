@@ -13,7 +13,7 @@ function escapeIcs(str) {
  */
 export function buildIcsContent(site) {
   const start = new Date(site.dateISO);
-  const end = new Date(start.getTime() + 4 * 60 * 60 * 1000); // +4h default
+  const end = new Date(start.getTime() + 5 * 60 * 60 * 1000); // +5h default
   const title = site.title || `${site.coupleNames || 'Wedding'} – Save the date`;
   const location = [site.venueFullName, site.address].filter(Boolean).join(', ');
   const formatICSDate = (d) => d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
@@ -42,7 +42,7 @@ export function buildIcsContent(site) {
  */
 export function buildGoogleCalendarUrl(site) {
   const start = new Date(site.dateISO);
-  const end = new Date(start.getTime() + 4 * 60 * 60 * 1000);
+  const end = new Date(start.getTime() + 5 * 60 * 60 * 1000);
   const title = site.title || `${site.coupleNames || 'Maya & Yoav'} – Save the date`;
   const location = [site.venueFullName, site.address].filter(Boolean).join(', ');
   const params = new URLSearchParams({

@@ -55,7 +55,7 @@ export default function Hero() {
       <div className="relative z-10 max-w-[700px] mx-auto space-y-4 md:space-y-6">
         <motion.h1
           variants={item}
-          className="font-display text-hero uppercase text-brand-900"
+          className="font-display text-hero-sub uppercase text-brand-900"
         >
           We're Getting Married
         </motion.h1>
@@ -131,15 +131,6 @@ export default function Hero() {
             <ShareButton />
           </div>
         </motion.div>
-        <motion.a
-          href="#schedule"
-          variants={item}
-          className="inline-flex flex-col items-center gap-1 text-xs text-brand-300 tracking-widest mt-8 md:mt-12 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 rounded px-2 py-2 min-h-[44px] justify-center"
-          aria-label="Scroll to schedule"
-        >
-          <span className="text-lg" aria-hidden="true">↓</span>
-          <span>Scroll to schedule</span>
-        </motion.a>
       </div>
     </motion.section>
   );
