@@ -74,7 +74,7 @@ export default function Hero() {
         </motion.div>
         <motion.img
           variants={item}
-          src={`${import.meta.env.BASE_URL}images/image.png`}
+          src={`${import.meta.env.BASE_URL}images/Cuple.png`}
           alt="Illustration of the couple"
           className="max-w-xs mx-auto w-full h-auto block"
           loading="eager"
