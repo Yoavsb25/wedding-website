@@ -13,7 +13,7 @@ export const site = {
   /** Embedded map iframe – shows R48 Hotel and Garden so guests can see where it’s located */
   mapsEmbedUrl: 'https://www.google.com/maps?q=R48+Hotel+and+Garden+48+Rothschild+Boulevard+Tel+Aviv&output=embed',
   /** Venue photos shown side by side (venue exterior, garden/backyard) */
-  venueImages: ['/images/venue.jpeg', '/images/backyard.jpeg'],
+  venueImages: ['/images/venue.jpeg', '/images/hotel-lobby.png'],
   rsvpDeadline: 'Respond by May 1, 2026',
   rsvpNote: 'Please RSVP by May 1, 2026.',
   rsvpFormEmbedUrl: 'https://forms.gle/kZd1hA9x7wyyDs4U7',
