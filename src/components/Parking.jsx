@@ -45,20 +45,6 @@ export default function Parking() {
           <p className="font-display text-xl text-brand-900">{site.parkingName}</p>
           <p className="text-brand-800">{site.parkingInstructions}</p>
 
-          <div className="space-y-2">
-            <p className="text-brand-700 font-body text-sm font-medium">Find parking on the map</p>
-            <div className="rounded-2xl overflow-hidden border border-brand-200 aspect-video w-full max-h-[400px] min-h-[280px]">
-              <iframe
-                src={site.parkingMapsEmbedUrl}
-                title={`Map showing ${site.parkingName}`}
-                className="w-full h-full min-h-[280px] border-0"
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
-            </div>
-          </div>
-
           <motion.a
             href={site.parkingMapsUrl}
             target="_blank"

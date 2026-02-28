@@ -55,11 +55,11 @@ export default function Hero() {
       <div className="relative z-10 max-w-[700px] mx-auto space-y-4 md:space-y-6">
         <motion.h1
           variants={item}
-          className="font-display text-hero-sub uppercase text-brand-900"
+          className="font-display text-hero-sub uppercase text-brand-900 font-normal"
         >
           We're Getting Married
         </motion.h1>
-        <motion.p variants={item} className="font-display text-hero-sub text-brand-900">
+        <motion.p variants={item} className="font-display text-hero-sub text-brand-900 font-bold">
           {site.coupleNames}
         </motion.p>
         <motion.p variants={item} className="text-lg text-brand-800">
