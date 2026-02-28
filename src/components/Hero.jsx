@@ -52,7 +52,7 @@ export default function Hero() {
       />
       <div className="absolute top-12 right-8 w-16 h-16 md:w-24 md:h-24 rounded-full border border-brand-400/20" aria-hidden="true" />
 
-      <div className="relative z-10 max-w-[700px] mx-auto space-y-4 md:space-y-6">
+      <div className="relative z-10 min-w-0 max-w-[700px] mx-auto space-y-4 md:space-y-6">
         <motion.h1
           variants={item}
           className="font-display text-hero-sub uppercase text-brand-900 font-normal"
@@ -74,12 +74,12 @@ export default function Hero() {
         </motion.div>
         <motion.div
           variants={item}
-          className="w-screen max-w-none ml-[calc(-50vw+50%)] mr-[calc(-50vw+50%)] md:ml-0 md:mr-0 md:w-auto mt-4"
+          className="w-full mt-4 flex justify-center -mx-4 md:mx-0"
         >
           <motion.img
             src={`${import.meta.env.BASE_URL}images/Cuple.png`}
             alt="Illustration of the couple"
-            className="w-full max-w-none h-auto block md:max-w-xs md:mx-auto"
+            className="w-full h-auto max-h-[60vh] block md:max-w-xs md:mx-auto"
             loading="eager"
             width={320}
             height={320}

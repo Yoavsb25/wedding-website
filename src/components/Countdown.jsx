@@ -54,7 +54,7 @@ export default function Countdown() {
   }
 
   return (
-    <div className="w-full max-w-[560px] mx-auto" role="status" aria-live="polite" aria-atomic="true">
+    <div className="w-full min-w-0 max-w-[560px] mx-auto overflow-hidden" role="status" aria-live="polite" aria-atomic="true">
       {/* Header: Countdown to "I do" with ring icon and decorative line */}
       <div className="flex flex-col items-center gap-3 mb-6">
         <div className="flex items-center gap-2">
@@ -73,7 +73,7 @@ export default function Countdown() {
       </div>
 
       {/* Four glass-style countdown cards */}
-      <div className="grid grid-cols-4 gap-2 md:gap-4">
+      <div className="grid grid-cols-4 gap-2 md:gap-4 min-w-0">
         {partsConfig.map(({ key, label }) => {
           const value = timeLeft[key];
           const display = key === 'days' ? value : pad(value);
