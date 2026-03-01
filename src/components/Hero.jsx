@@ -74,15 +74,13 @@ export default function Hero() {
         </motion.div>
         <motion.div
           variants={item}
-          className="w-full mt-4 flex justify-center -mx-4 md:mx-0"
+          className="w-full mt-4 flex justify-center"
         >
           <motion.img
             src={`${import.meta.env.BASE_URL}images/Cuple.png`}
             alt="Illustration of the couple"
-            className="w-full h-auto max-h-[60vh] block md:max-w-xs md:mx-auto"
+            className="w-full h-auto max-h-[60vh] block object-contain md:max-w-xs md:mx-auto"
             loading="eager"
-            width={320}
-            height={320}
             whileHover={!shouldReduceMotion ? { scale: 1.03 } : undefined}
             transition={{ duration: duration.motion / 1000, ease: easing.soft }}
           />
