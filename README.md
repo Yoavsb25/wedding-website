@@ -1,59 +1,64 @@
-# Wedding Website & RSVP
+# Wedding Website
+
+![React](https://img.shields.io/badge/React-A78BFA?style=for-the-badge&logo=react&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-7C3AED?style=for-the-badge&logo=vite&logoColor=white)
+![Status](https://img.shields.io/badge/Status-In_Progress-7C3AED?style=for-the-badge)
+
+> A single-page wedding website with RSVP via Google Form — invitations, schedule, and event details.
+
+---
+
+## Overview
 
 A single-page wedding website built with React (Vite) and Tailwind CSS. RSVP is handled via an embedded Google Form; submissions go to Google Sheets as the admin dashboard.
 
-## Setup
+## Features
+
+- Event details, schedule, and venue information
+- RSVP via embedded Google Form → Google Sheets admin dashboard
+- Countdown to the wedding day
+- Mobile-first responsive design
+- GitHub Pages deployment via GitHub Actions
+
+## Tech Stack
+
+![React](https://img.shields.io/badge/React-7C3AED?style=for-the-badge&logo=react&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-7C3AED?style=for-the-badge&logo=vite&logoColor=white)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-A78BFA?style=for-the-badge&logo=tailwindcss&logoColor=white)
+![GitHub Pages](https://img.shields.io/badge/GitHub_Pages-6B7280?style=for-the-badge&logo=github&logoColor=white)
+
+## Getting Started
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open [http://localhost:5173](http://localhost:5173).
+Open http://localhost:5173
 
-## Build & deploy
+## Build & Deploy
 
 ```bash
 npm run build
 ```
 
-The app builds to `dist/`. For GitHub Pages (project page), the workflow in `.github/workflows/deploy.yml` runs on push to `main`.
+Deploys to GitHub Pages via `.github/workflows/deploy.yml` on push to `main`. In repo settings, set **Pages → Source → GitHub Actions**.
 
-**Required:** In the repo go to **Settings → Pages → Build and deployment → Source** and select **"GitHub Actions"** (not "Deploy from a branch"). Otherwise the site serves the raw repo and you'll see "MIME type text/jsx" and 404s; the built app is only served when the source is GitHub Actions.
+## Customization
 
-**Base path:** If the site is at `https://<user>.github.io/wedding-website/`, `vite.config.js` already has `base: '/wedding-website/'`. For a user/org site at the root, set `base: '/'` in `vite.config.js`.
-
-## Content
-
-- **Site copy & venue:** `src/data/site.js` — title, couple names, date, venue, address, maps URL, RSVP note and deadline, form embed URL, parking instructions.
-- **Schedule:** `src/data/schedule.js` — array of `{ time, title }`.
-- **Countdown phrases:** `src/data/countdownCopy.js` — poetic microcopy by "days until" bucket.
-
-Replace `site.rsvpFormEmbedUrl` with your Google Form embed URL (Form → Send → Embed → copy iframe `src`).
-
-## Google Form & Sheets
-
-1. **Form:** Create a form with required fields: First Name, Last Name, Number of Guests (numeric). Enable "Edit after submit". Set a friendly confirmation message.
-2. **Sheet:** Link the form to a new sheet. Ensure columns: Timestamp, First Name, Last Name, Number of Guests.
-3. **Dashboard:** Add a tab with total RSVPs (`=COUNTA(A2:A)`) and total guests (`=SUM(D2:D)`). Restrict sheet access to admins only.
-
-## Images
-
-- Add `public/images/couple.png` (or replace `public/images/couple.svg`) for the hero image.
-- Add `public/images/venue.jpg` for the hotel photo (the image you see on Google Maps for **R48 Hotel and Garden**): open [R48 Hotel and Garden](https://www.google.com/maps/search/?api=1&query=R48+Hotel+and+Garden+48+Rothschild+Boulevard+Tel+Aviv) in Google Maps, right‑click the main cover image → Save image, save as `public/images/venue.jpg`, then set `venueImageUrl: '/images/venue.jpg'` in `src/data/site.js`. Compress images to stay within performance budget (~200KB total).
-
-## Launch checklist
-
-- [ ] Finalize copy in `src/data/*`
-- [ ] Replace/compress `public/images/couple.png`
-- [ ] Set Google Form embed URL in `site.js`
-- [ ] Confirm Form: "Edit after submit" on; confirmation message set
-- [ ] Test RSVP on mobile and desktop; verify Sheet totals
-- [ ] Run Lighthouse (mobile): Performance ≥ 90, Accessibility ≥ 95, SEO ≥ 90
-- [ ] GitHub Pages HTTPS; optional custom domain + CNAME
+- **Site copy & venue:** `src/data/site.js`
+- **Schedule:** `src/data/schedule.js`
+- **Countdown phrases:** `src/data/countdownCopy.js`
+- **Base path:** set `base` in `vite.config.js` (`'/wedding-website/'` for project page, `'/'` for user site)
 
 ## Docs
 
-- [ARCHITECTURE.MD](ARCHITECTURE.MD) — architecture and structure
-- [DESIGN.md](DESIGN.md) — design and animation spec
-- [PRD.MD](PRD.MD) — product requirements
+- [ARCHITECTURE.MD](ARCHITECTURE.MD)
+- [DESIGN.md](DESIGN.md)
+- [PRD.MD](PRD.MD)
+
+---
+
+[![LinkedIn](https://img.shields.io/badge/Yoav_Sborovsky-LinkedIn-7C3AED?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/yoav-sborovsky/)
+&nbsp;
+Part of [Yoav Sborovsky's GitHub portfolio](https://github.com/Yoavsb25)
