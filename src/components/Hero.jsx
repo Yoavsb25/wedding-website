@@ -79,7 +79,7 @@ export default function Hero() {
           <motion.img
             src={`${import.meta.env.BASE_URL}images/Cuple.png`}
             alt="Illustration of the couple"
-            className="w-full h-auto max-h-[80vh] block object-contain md:max-w-md md:mx-auto"
+            className="w-full h-auto block object-contain md:max-w-md md:mx-auto"
             loading="eager"
             whileHover={!shouldReduceMotion ? { scale: 1.03 } : undefined}
             transition={{ duration: duration.motion / 1000, ease: easing.soft }}
