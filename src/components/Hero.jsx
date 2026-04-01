@@ -62,10 +62,10 @@ export default function Hero() {
         <motion.p variants={item} className="font-display text-hero-sub text-brand-900 font-bold">
           {site.coupleNames}
         </motion.p>
-        <motion.p variants={item} className="text-lg text-brand-800">
+        <motion.p variants={item} className="font-display text-lg text-brand-800">
           {dateFormatted}
         </motion.p>
-        <motion.p variants={item} className="text-lg text-brand-800">
+        <motion.p variants={item} className="font-display text-lg text-brand-800">
           {site.venueFullName}, Tel Aviv
         </motion.p>
 
@@ -79,7 +79,7 @@ export default function Hero() {
           <motion.img
             src={`${import.meta.env.BASE_URL}images/Cuple.png`}
             alt="Illustration of the couple"
-            className="w-full h-auto max-h-[60vh] block object-contain md:max-w-xs md:mx-auto"
+            className="w-full h-auto max-h-[80vh] block object-contain md:max-w-md md:mx-auto"
             loading="eager"
             whileHover={!shouldReduceMotion ? { scale: 1.03 } : undefined}
             transition={{ duration: duration.motion / 1000, ease: easing.soft }}
