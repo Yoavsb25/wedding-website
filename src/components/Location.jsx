@@ -64,7 +64,7 @@ export default function Location() {
           )}
 
           <div className="space-y-2">
-            <p className="text-brand-700 font-body text-sm font-medium">Find us on the map</p>
+            <p className="text-brand-700 font-display text-sm font-medium">Find us on the map</p>
             <div className="rounded-2xl overflow-hidden border border-brand-200 aspect-video w-full max-h-[400px] min-h-[280px]">
               <iframe
                 src={site.mapsEmbedUrl}

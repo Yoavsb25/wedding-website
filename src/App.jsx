@@ -21,7 +21,7 @@ function App() {
         duration: duration.motion / 1000,
         ease: easing.weddingRing,
       }}
-      className="min-h-screen font-body text-brand-900 bg-brand-50 overflow-x-hidden"
+      className="min-h-screen font-display text-brand-900 bg-brand-50 overflow-x-hidden"
     >
       <a
         href="#main-content"

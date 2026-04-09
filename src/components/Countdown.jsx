@@ -99,7 +99,7 @@ export default function Countdown() {
                   </motion.span>
                 </AnimatePresence>
               </div>
-              <p className="font-body text-xs md:text-sm text-brand-600 mt-1">{label}</p>
+              <p className="font-display text-xs md:text-sm text-brand-600 mt-1">{label}</p>
             </motion.div>
           );
         })}

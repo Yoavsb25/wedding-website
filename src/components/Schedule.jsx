@@ -115,7 +115,7 @@ export default function Schedule() {
                   </time>
                   <span className="font-display text-lg text-brand-900">{entry.title}</span>
                   {entry.location && (
-                    <span className="font-body text-sm text-brand-600">{entry.location}</span>
+                    <span className="font-display text-sm text-brand-600">{entry.location}</span>
                   )}
                 </motion.div>
               </motion.li>
@@ -176,7 +176,7 @@ export default function Schedule() {
                 </div>
                 <span className="font-display text-lg text-brand-900 block">{entry.title}</span>
                 {entry.location && (
-                  <span className="font-body text-sm text-brand-600 mt-1 block">
+                  <span className="font-display text-sm text-brand-600 mt-1 block">
                     {entry.location}
                   </span>
                 )}

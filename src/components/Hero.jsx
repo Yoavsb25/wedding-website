@@ -50,8 +50,6 @@ export default function Hero() {
         className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_0%,rgba(90,111,148,0.08),transparent_50%)]"
         aria-hidden="true"
       />
-      <div className="absolute top-12 right-8 w-16 h-16 md:w-24 md:h-24 rounded-full border border-brand-400/20" aria-hidden="true" />
-
       <div className="relative z-10 min-w-0 max-w-[700px] mx-auto space-y-4 md:space-y-6">
         <motion.h1
           variants={item}

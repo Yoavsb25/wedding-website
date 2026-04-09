@@ -2,6 +2,9 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 
+const REPO_BASE = '/wedding-website/';
+const APP_BASE = process.env.NODE_ENV === 'production' ? REPO_BASE : '/';
+
 /** Ensures .jsx/.tsx are served as application/javascript so browsers accept module scripts */
 function jsxMimePlugin() {
   return {
@@ -27,7 +30,7 @@ export default defineConfig({
     // VitePWA last so closeBundle runs after other plugins (avoids "Unexpected early exit")
     VitePWA({
       registerType: 'autoUpdate',
-      base: '/wedding-website/',
+      base: APP_BASE,
       manifest: {
         name: 'Maya & Yoav\'s Wedding',
         short_name: 'Wedding',
@@ -35,7 +38,7 @@ export default defineConfig({
         theme_color: '#1a2332',
         background_color: '#f5f7fa',
         display: 'standalone',
-        start_url: '/wedding-website/',
+        start_url: APP_BASE,
         icons: [
           {
             src: '/wedding-website/favicon.svg',
@@ -54,5 +57,5 @@ export default defineConfig({
       disable: true,
     }),
   ],
-  base: '/wedding-website/',
+  base: APP_BASE,
 });
