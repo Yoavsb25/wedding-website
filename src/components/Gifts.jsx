@@ -91,7 +91,7 @@ export default function Gifts() {
       fetch('http://127.0.0.1:7791/ingest/b57918ff-6c01-45c6-98e4-bf188597c0a6', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'X-Debug-Session-Id': '5129d4' },
-        body: JSON.stringify({ sessionId: '5129d4', location: 'Gifts.jsx:mount', message: msg, data, hypothesisId, timestamp: Date.now() }),
+        body: JSON.stringify({ sessionId: '5129d4', runId: 'post-fix', location: 'Gifts.jsx:mount', message: msg, data, hypothesisId, timestamp: Date.now() }),
       }).catch(() => {});
     };
 
@@ -116,7 +116,7 @@ export default function Gifts() {
   // #endregion
 
   return (
-    <section id="gifts" aria-labelledby="gifts-title" className="py-16 md:py-24 px-4">
+    <section id="gifts" aria-labelledby="gifts-title" className="py-8 md:py-24 px-4">
       <div className="max-w-xl mx-auto">
         {/* Header */}
         <motion.div
@@ -124,9 +124,9 @@ export default function Gifts() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={sectionVariants}
-          className="text-center mb-10"
+          className="text-center mb-6 md:mb-10"
         >
-          <div className="flex items-center justify-center gap-2 mb-6" aria-hidden="true">
+          <div className="flex items-center justify-center gap-2 mb-3 md:mb-6" aria-hidden="true">
             <span className="h-px flex-1 max-w-[60px] bg-brand-300/60" />
             <span className="w-2 h-2 rounded-full bg-brand-400/80" />
             <span className="h-px flex-1 max-w-[60px] bg-brand-300/60" />
@@ -148,7 +148,7 @@ export default function Gifts() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={sectionVariants}
-          className="mb-8"
+          className="mb-4 md:mb-8"
         >
           <div className="rounded-2xl overflow-hidden border border-brand-200 ring-1 ring-brand-300/40 border-t-[3px] border-t-brand-500 shadow-[0_4px_24px_rgba(44,31,20,0.10)]">
             {/* Warm cream header — gold as text accent, not background */}
