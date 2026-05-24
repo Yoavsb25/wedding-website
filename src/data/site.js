@@ -32,7 +32,11 @@ export const site = {
     bankCode: '11',
     branchNumber: '198',
     accountNumber: '123456789',
-    bitPhone: '+972524654302',
-    payboxPhone: '+972524654302',
+    quickPay: [
+      { id: 'maya-bit',    label: "Maya's Bit",    app: 'bit',    url: 'FILL_IN_MAYA_BIT_LINK' },
+      { id: 'yoav-bit',    label: "Yoav's Bit",    app: 'bit',    url: 'FILL_IN_YOAV_BIT_LINK' },
+      { id: 'maya-paybox', label: "Maya's PayBox", app: 'paybox', url: 'FILL_IN_MAYA_PAYBOX_LINK' },
+      { id: 'yoav-paybox', label: "Yoav's PayBox", app: 'paybox', url: 'FILL_IN_YOAV_PAYBOX_LINK' },
+    ],
   },
 };
