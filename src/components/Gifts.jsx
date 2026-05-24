@@ -2,37 +2,7 @@ import { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { site } from '../data/site';
 import { fadeUp } from '../theme/motionVariants';
-
-const CopyIcon = () => (
-  <svg
-    className="w-4 h-4 shrink-0"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <rect width="14" height="14" x="8" y="8" rx="2" />
-    <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
-  </svg>
-);
-
-const CheckIcon = () => (
-  <svg
-    className="w-4 h-4 shrink-0"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <path d="M20 6L9 17l-5-5" />
-  </svg>
-);
+import { CopyIcon, CheckIcon } from './icons';
 
 const APP_LOGOS = {
   bit: `${import.meta.env.BASE_URL}images/bit-logo.png`,
