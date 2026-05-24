@@ -35,8 +35,8 @@ export const site = {
     quickPay: [
       { id: 'maya-bit',    label: "Maya's Bit",    app: 'bit',    url: 'https://www.bitpay.co.il/app/me/841348C9-D873-56A7-D192-AD125C3FD51D67B2' },
       { id: 'yoav-bit',    label: "Yoav's Bit",    app: 'bit',    url: 'https://www.bitpay.co.il/app/me/69A41A65-45B1-CE41-2F02-73CA549988C7B5FB' },
-      { id: 'maya-paybox', label: "Maya's PayBox", app: 'paybox', url: 'FILL_IN_MAYA_PAYBOX_LINK' },
-      { id: 'yoav-paybox', label: "Yoav's PayBox", app: 'paybox', url: 'FILL_IN_YOAV_PAYBOX_LINK' },
+      { id: 'maya-paybox', label: "Maya's PayBox", app: 'paybox', url: 'https://links.payboxapp.com/Lo4zjkKfp3b' },
+      { id: 'yoav-paybox', label: "Yoav's PayBox", app: 'paybox', url: 'https://links.payboxapp.com/T3Q4VsOfp3b' },
     ],
   },
 };
