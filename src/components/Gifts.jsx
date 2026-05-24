@@ -69,7 +69,7 @@ export default function Gifts() {
           </h2>
           <p className="text-brand-500 text-base md:text-lg max-w-md mx-auto leading-relaxed">
             {copy.gifts.tagline}<br />
-            {copy.gifts.note}
+            <span dangerouslySetInnerHTML={{ __html: copy.gifts.note }} />
           </p>
         </motion.div>
 

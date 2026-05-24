@@ -29,7 +29,7 @@ export const site = {
   copy: {
     gifts: {
       tagline: "Thank you for celebrating with us ♡",
-      note: "Gift details are below — bank transfer is preferred",
+      note: "Gift details are below — <strong>bank transfer is preferred</strong>",
     },
   },
   /** Bank transfer & quick-pay details for the Gifts section */
