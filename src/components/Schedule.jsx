@@ -64,7 +64,7 @@ export default function Schedule() {
       className="py-16 md:py-24 px-4"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: '-80px' }}
+      viewport={{ once: true }}
       variants={container}
     >
       <div className="max-w-[900px] mx-auto">
