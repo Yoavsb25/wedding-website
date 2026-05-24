@@ -94,13 +94,12 @@ export default function Gifts() {
             </div>
             {/* Fields */}
             <div className="px-6 py-5 bg-white/80">
+              <CopyField label="Bank Name" value={gifts.bankName} />
               <CopyField label="Bank Code" value={gifts.bankCode} />
               <CopyField label="Branch" value={gifts.branchNumber} />
               <CopyField label="Account Number" value={gifts.accountNumber} />
-              <div className="pt-3">
-                <p className="text-xs text-brand-400 uppercase tracking-wider">Account Holder</p>
-                <p className="text-brand-800 font-medium mt-0.5">{gifts.accountHolder}</p>
-              </div>
+              <CopyField label="Account Holder" value={gifts.accountHolder} />
+         
             </div>
           </div>
         </motion.div>

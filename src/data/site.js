@@ -34,7 +34,7 @@ export const site = {
   },
   /** Bank transfer & quick-pay details for the Gifts section */
   gifts: {
-    accountHolder: 'Maya Amir, Yoav Sabrovsky',
+    accountHolder: 'מאיה אמיר, יואב סבורובסקי',
     bankName: 'Discount Bank',
     bankCode: '11',
     branchNumber: '198',
