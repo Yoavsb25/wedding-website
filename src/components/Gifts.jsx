@@ -95,7 +95,6 @@ export default function Gifts() {
             {/* Fields */}
             <div className="px-6 py-5 bg-white/80">
               <CopyField label="Bank Name" value={gifts.bankName} />
-              <CopyField label="Bank Code" value={gifts.bankCode} />
               <CopyField label="Branch" value={gifts.branchNumber} />
               <CopyField label="Account Number" value={gifts.accountNumber} />
               <CopyField label="Account Holder" value={gifts.accountHolder} />
