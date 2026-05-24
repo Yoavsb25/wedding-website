@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { site } from '../data/site';
-import { duration, easing } from '../theme/tokens';
+import { fadeUp } from '../theme/motionVariants';
 
 const CopyIcon = () => (
   <svg
@@ -70,14 +70,6 @@ function CopyField({ label, value }) {
   );
 }
 
-const sectionVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: duration.motion / 1000, ease: easing.soft },
-  },
-};
 
 export default function Gifts() {
   const shouldReduceMotion = useReducedMotion();
@@ -91,7 +83,7 @@ export default function Gifts() {
           initial={shouldReduceMotion ? false : 'hidden'}
           whileInView="visible"
           viewport={{ once: true }}
-          variants={sectionVariants}
+          variants={fadeUp}
           className="text-center mb-6 md:mb-10"
         >
           <div className="flex items-center justify-center gap-2 mb-3 md:mb-6" aria-hidden="true">
@@ -115,7 +107,7 @@ export default function Gifts() {
           initial={shouldReduceMotion ? false : 'hidden'}
           whileInView="visible"
           viewport={{ once: true }}
-          variants={sectionVariants}
+          variants={fadeUp}
           className="mb-4 md:mb-8"
         >
           <div className="rounded-2xl overflow-hidden border border-brand-200 ring-1 ring-brand-300/40 border-t-[3px] border-t-brand-500 shadow-[0_4px_24px_rgba(44,31,20,0.10)]">
@@ -147,7 +139,7 @@ export default function Gifts() {
           initial={shouldReduceMotion ? false : 'hidden'}
           whileInView="visible"
           viewport={{ once: true }}
-          variants={sectionVariants}
+          variants={fadeUp}
         >
           <div className="flex items-center gap-3 mb-5" aria-hidden="true">
             <span className="h-px flex-1 bg-brand-200/60" />
