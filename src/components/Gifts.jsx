@@ -69,7 +69,7 @@ export default function Gifts() {
           </h2>
           <p className="text-brand-500 text-base md:text-lg max-w-md mx-auto leading-relaxed">
             {copy.gifts.tagline}<br />
-            {copy.gifts.note}
+            <span dangerouslySetInnerHTML={{ __html: copy.gifts.note }} />
           </p>
         </motion.div>
 
@@ -109,7 +109,7 @@ export default function Gifts() {
         <motion.div
           initial={shouldReduceMotion ? false : 'hidden'}
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "0px 0px 100px 0px" }}
           variants={fadeUp}
         >
           <div className="flex items-center gap-3 mb-5" aria-hidden="true">

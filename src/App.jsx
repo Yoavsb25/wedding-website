@@ -14,11 +14,19 @@ function App() {
   const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
+    if ('scrollRestoration' in history) {
+      history.scrollRestoration = 'manual';
+    }
     const hash = window.location.hash;
-    if (hash) {
+    if (!hash) return;
+    const doScroll = () => {
       const el = document.querySelector(hash);
       if (el) el.scrollIntoView({ behavior: 'instant' });
-    }
+    };
+    // Playfair Display uses font-display:swap — it loads async and reflows all
+    // sections above Gifts, invalidating scroll positions measured before load.
+    // Wait for fonts + one rAF so layout is stable before scrolling.
+    document.fonts.ready.then(() => requestAnimationFrame(doScroll));
   }, []);
 
   return (
