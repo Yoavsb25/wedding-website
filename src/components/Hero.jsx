@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { site } from '../data/site';
 import { duration, easing } from '../theme/tokens';
 import Countdown from './Countdown';
@@ -30,12 +31,12 @@ const item = {
 
 export default function Hero() {
   const shouldReduceMotion = useReducedMotion();
+  const { t, i18n } = useTranslation();
 
-  const dateFormatted = new Date(site.dateISO).toLocaleDateString('en-GB', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-  });
+  const dateFormatted = new Date(site.dateISO).toLocaleDateString(
+    i18n.language === 'he' ? 'he-IL' : i18n.language === 'es' ? 'es-ES' : 'en-GB',
+    { day: 'numeric', month: 'long', year: 'numeric' }
+  );
 
   return (
     <motion.section
@@ -55,7 +56,7 @@ export default function Hero() {
           variants={item}
           className="font-display text-hero-sub uppercase text-brand-900 font-normal"
         >
-          We're Getting Married
+          {t('hero.gettingMarried')}
         </motion.h1>
         <motion.p variants={item} className="font-display text-hero-sub text-brand-900 font-bold">
           {site.coupleNames}
@@ -84,7 +85,6 @@ export default function Hero() {
           />
         </motion.div>
 
-        {/* Mark your calendars & RSVP */}
         <motion.div variants={item} className="w-full mt-6">
           <div className="flex items-center justify-center gap-3 text-brand-600 text-sm">
             <span className="flex-1 max-w-12 h-px bg-brand-300/60" aria-hidden="true" />
@@ -93,7 +93,7 @@ export default function Hero() {
               <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24" aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
-              Mark your calendars & RSVP
+              {t('hero.tagline')}
             </span>
             <span className="w-1.5 h-1.5 rounded-full bg-brand-300/80" aria-hidden="true" />
             <span className="flex-1 max-w-12 h-px bg-brand-300/60" aria-hidden="true" />
@@ -109,16 +109,15 @@ export default function Hero() {
             <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
-            RSVP Now
+            {t('hero.rsvp')}
           </motion.a>
         </motion.div>
 
-        {/* Add to Calendar */}
         <motion.div variants={item} className="w-full mt-5">
           <div className="flex items-center justify-center gap-3 text-brand-600 text-sm">
             <span className="flex-1 max-w-12 h-px bg-brand-300/60" aria-hidden="true" />
             <span className="w-1.5 h-1.5 rounded-full bg-brand-300/80" aria-hidden="true" />
-            <span className="shrink-0 font-medium">Add to Calendar</span>
+            <span className="shrink-0 font-medium">{t('hero.addToCalendar')}</span>
             <span className="w-1.5 h-1.5 rounded-full bg-brand-300/80" aria-hidden="true" />
             <span className="flex-1 max-w-12 h-px bg-brand-300/60" aria-hidden="true" />
           </div>

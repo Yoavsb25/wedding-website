@@ -1,0 +1,82 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "schedule": "Programa",
+    "location": "Ubicación",
+    "parking": "Estacionamiento",
+    "rsvp": "RSVP",
+    "gift": "Regalo"
+  },
+  "hero": {
+    "gettingMarried": "Nos Casamos",
+    "tagline": "Marca tu calendario y RSVP",
+    "rsvp": "RSVP Ahora",
+    "addToCalendar": "Agregar al Calendario"
+  },
+  "schedule": {
+    "heading": "Programa",
+    "reception": "Recepción",
+    "ceremony": "Ceremonia",
+    "dinner": "Cena"
+  },
+  "location": {
+    "heading": "Ubicación",
+    "address": "Boulevard Rothschild 48, Tel Aviv",
+    "findUs": "Encuéntranos en el mapa",
+    "openMaps": "Abrir en Google Maps",
+    "mapTitle": "Mapa mostrando la ubicación de {{venue}}",
+    "venueExteriorAlt": "{{venue}} – exterior",
+    "venueGardenAlt": "{{venue}} – jardín"
+  },
+  "parking": {
+    "heading": "Estacionamiento",
+    "openMaps": "Abrir en Google Maps",
+    "instructions": "No hay arreglo con ningún estacionamiento público en el área. El estacionamiento más cercano es Beit Hadar Parking Lot, a corta distancia del lugar en Boulevard Rothschild 48."
+  },
+  "rsvp": {
+    "heading": "RSVP",
+    "note": "Por favor, RSVP antes del 1 de mayo de 2026.",
+    "loading": "Cargando formulario de RSVP…",
+    "openTab": "Abrir formulario en nueva pestaña",
+    "formTitle": "Formulario de RSVP"
+  },
+  "gifts": {
+    "heading": "Regalo de Boda",
+    "tagline": "Gracias por celebrar con nosotros ♡",
+    "note": "Los detalles del regalo están abajo — <strong>la transferencia bancaria es preferida</strong>",
+    "bankTransfer": "Transferencia Bancaria",
+    "preferred": "Preferida · sin comisiones",
+    "quickPay": "o paga rápidamente con",
+    "bankName": "Nombre del Banco",
+    "bankCode": "Código de Banco",
+    "branch": "Sucursal",
+    "accountNumber": "Número de Cuenta",
+    "accountHolder": "Titular de la Cuenta",
+    "copy": "Copiar",
+    "copied": "Copiado",
+    "copyLabel": "Copiar {{label}}"
+  },
+  "share": {
+    "label": "Compartir",
+    "ariaLabel": "Compartir esta página",
+    "copied": "¡Enlace copiado!",
+    "error": "No se pudo compartir o copiar"
+  },
+  "calendar": {
+    "apple": "Apple Calendar",
+    "google": "Google Calendar"
+  },
+  "countdown": {
+    "heading": "Cuenta regresiva para \"Sí, acepto\"",
+    "done": "¡Lo hicimos!",
+    "days": "días",
+    "hours": "horas",
+    "minutes": "minutos",
+    "seconds": "segundos"
+  },
+  "footer": {
+    "skipLink": "Saltar al contenido principal",
+    "love": "© {{year}} – Con amor",
+    "instagramLabel": "Instagram o álbum de boda"
+  }
+}
