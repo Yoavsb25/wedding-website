@@ -43,7 +43,7 @@ function CopyField({ label, value }) {
 
 export default function Gifts() {
   const shouldReduceMotion = useReducedMotion();
-  const { gifts } = site;
+  const { gifts, copy } = site;
 
   return (
     <section id="gifts" aria-labelledby="gifts-title" className="py-8 md:py-24 px-4">
@@ -68,8 +68,9 @@ export default function Gifts() {
             Wedding Gift
           </h2>
           <p className="text-brand-500 text-base md:text-lg max-w-md mx-auto leading-relaxed">
-            Thank you for celebrating with us ♡<br />
-            Gift details are below - <strong>bank transfer is preferred</strong></p>
+            {copy.gifts.tagline}<br />
+            {copy.gifts.note}
+          </p>
         </motion.div>
 
         {/* Bank transfer card — warm cream header + 3px gold top border signals priority */}
