@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { duration, easing } from './theme/tokens';
 import Hero from './components/Hero';
@@ -11,6 +12,14 @@ import { site } from './data/site';
 
 function App() {
   const shouldReduceMotion = useReducedMotion();
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      const el = document.querySelector(hash);
+      if (el) el.scrollIntoView({ behavior: 'instant' });
+    }
+  }, []);
 
   return (
     <>
@@ -63,6 +72,8 @@ function App() {
           <a href="#schedule" className="text-brand-300 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 rounded px-2 py-2 min-h-[44px] inline-flex items-center">Schedule</a>
           <span className="text-brand-600" aria-hidden="true">|</span>
           <a href="#location" className="text-brand-300 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 rounded px-2 py-2 min-h-[44px] inline-flex items-center">Location</a>
+          <span className="text-brand-600" aria-hidden="true">|</span>
+          <a href="#parking" className="text-brand-300 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 rounded px-2 py-2 min-h-[44px] inline-flex items-center">Parking</a>
           <span className="text-brand-600" aria-hidden="true">|</span>
           <a href="#rsvp" className="text-brand-300 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 rounded px-2 py-2 min-h-[44px] inline-flex items-center">RSVP</a>
           <span className="text-brand-600" aria-hidden="true">|</span>
