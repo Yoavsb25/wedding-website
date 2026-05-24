@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { duration, easing } from '../theme/tokens';
 import { ShareIcon } from './icons';
 
@@ -7,6 +8,7 @@ export default function ShareButton() {
   const [copied, setCopied] = useState(false);
   const [error, setError] = useState(false);
   const shouldReduceMotion = useReducedMotion();
+  const { t } = useTranslation();
 
   const handleShare = useCallback(async () => {
     setError(false);
@@ -15,11 +17,7 @@ export default function ShareButton() {
 
     if (typeof navigator.share === 'function') {
       try {
-        await navigator.share({
-          title,
-          url,
-          text: title,
-        });
+        await navigator.share({ title, url, text: title });
         return;
       } catch (err) {
         if (err.name === 'AbortError') return;
@@ -45,10 +43,10 @@ export default function ShareButton() {
         whileHover={!shouldReduceMotion ? { scale: 1.02 } : undefined}
         whileTap={!shouldReduceMotion ? { scale: 0.98 } : undefined}
         transition={{ duration: duration.motion / 1000, ease: easing.soft }}
-        aria-label="Share this page"
+        aria-label={t('share.ariaLabel')}
       >
         <ShareIcon />
-        Share
+        {t('share.label')}
       </motion.button>
       {copied && (
         <motion.span
@@ -59,12 +57,12 @@ export default function ShareButton() {
           role="status"
           aria-live="polite"
         >
-          Link copied!
+          {t('share.copied')}
         </motion.span>
       )}
       {error && (
         <span className="absolute left-1/2 -translate-x-1/2 top-full mt-2 px-3 py-1.5 rounded-lg bg-red-600 text-white text-xs whitespace-nowrap z-10">
-          Could not share or copy
+          {t('share.error')}
         </span>
       )}
     </div>

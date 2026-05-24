@@ -1,0 +1,82 @@
+{
+  "nav": {
+    "home": "בית",
+    "schedule": "לו\"ז",
+    "location": "מיקום",
+    "parking": "חניה",
+    "rsvp": "אישור הגעה",
+    "gift": "מתנה"
+  },
+  "hero": {
+    "gettingMarried": "אנחנו מתחתנים",
+    "tagline": "שמרו את התאריך ואשרו הגעה",
+    "rsvp": "אישור הגעה",
+    "addToCalendar": "הוסיפו ליומן"
+  },
+  "schedule": {
+    "heading": "לוח האירועים",
+    "reception": "קבלת פנים",
+    "ceremony": "טקס",
+    "dinner": "ארוחת ערב"
+  },
+  "location": {
+    "heading": "מיקום",
+    "address": "שדרות רוטשילד 48, תל אביב",
+    "findUs": "נווטו אלינו",
+    "openMaps": "פתחו במפות",
+    "mapTitle": "מפה המציגה את מיקום {{venue}}",
+    "venueExteriorAlt": "{{venue}} – חזית",
+    "venueGardenAlt": "{{venue}} – גן"
+  },
+  "parking": {
+    "heading": "חניה",
+    "openMaps": "פתחו במפות",
+    "instructions": "אין הסדר עם חניות ציבוריות באזור. החניון הקרוב ביותר הוא חניון בית הדר, במרחק הליכה קצר מהאולם ברחוב רוטשילד 48."
+  },
+  "rsvp": {
+    "heading": "אישור הגעה",
+    "note": "אנא אשרו הגעה עד 1 במאי 2026.",
+    "loading": "טוען טופס…",
+    "openTab": "פתחו בלשונית חדשה",
+    "formTitle": "טופס אישור הגעה"
+  },
+  "gifts": {
+    "heading": "מתנה לחתונה",
+    "tagline": "תודה שאתם חוגגים איתנו ♡",
+    "note": "פרטי ההעברה למטה — <strong>העברה בנקאית עדיפה</strong>",
+    "bankTransfer": "העברה בנקאית",
+    "preferred": "מועדף · ללא עמלות",
+    "quickPay": "או שלמו מהר עם",
+    "bankName": "שם הבנק",
+    "bankCode": "קוד בנק",
+    "branch": "סניף",
+    "accountNumber": "מספר חשבון",
+    "accountHolder": "שם בעל החשבון",
+    "copy": "העתק",
+    "copied": "הועתק",
+    "copyLabel": "העתק {{label}}"
+  },
+  "share": {
+    "label": "שתפו",
+    "ariaLabel": "שתפו דף זה",
+    "copied": "הקישור הועתק!",
+    "error": "לא ניתן לשתף או להעתיק"
+  },
+  "calendar": {
+    "apple": "לוח שנה של Apple",
+    "google": "Google Calendar"
+  },
+  "countdown": {
+    "heading": "ספירה לאחור ל״כן״",
+    "done": "עשינו את זה!",
+    "days": "ימים",
+    "hours": "שעות",
+    "minutes": "דקות",
+    "seconds": "שניות"
+  },
+  "footer": {
+    "skipLink": "דלגו לתוכן הראשי",
+    "love": "© {{year}} – מתוך אהבה",
+    "instagramLabel": "אינסטגרם או אלבום חתונה"
+  }
+}

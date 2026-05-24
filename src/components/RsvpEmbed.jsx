@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { site } from '../data/site';
 import { duration, easing } from '../theme/tokens';
 import { staggerContainer, fadeUpItem } from '../theme/motionVariants';
@@ -7,6 +8,7 @@ import { staggerContainer, fadeUpItem } from '../theme/motionVariants';
 export default function RsvpEmbed() {
   const [iframeLoaded, setIframeLoaded] = useState(false);
   const shouldReduceMotion = useReducedMotion();
+  const { t } = useTranslation();
 
   return (
     <motion.section
@@ -22,10 +24,10 @@ export default function RsvpEmbed() {
           variants={fadeUpItem}
           className="font-display text-section uppercase text-brand-900 mb-4 text-center"
         >
-          RSVP
+          {t('rsvp.heading')}
         </motion.h2>
         <motion.p variants={fadeUpItem} className="text-center text-brand-800 mb-4">
-          {site.rsvpNote}
+          {t('rsvp.note')}
         </motion.p>
         <motion.p variants={fadeUpItem} className="text-center mb-6">
           <a
@@ -34,7 +36,7 @@ export default function RsvpEmbed() {
             rel="noopener noreferrer"
             className="text-brand-600 hover:text-brand-800 underline focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 rounded"
           >
-            Open form in new tab
+            {t('rsvp.openTab')}
           </a>
         </motion.p>
         <motion.div variants={fadeUpItem} className="relative min-h-[400px] rounded-2xl overflow-hidden bg-brand-100">
@@ -47,13 +49,13 @@ export default function RsvpEmbed() {
                 exit={{ opacity: 0 }}
                 transition={{ duration: duration.motion / 1000, ease: easing.soft }}
               >
-                Loading RSVP form…
+                {t('rsvp.loading')}
               </motion.div>
             )}
           </AnimatePresence>
           <motion.iframe
             src={site.rsvpFormEmbedUrl}
-            title="RSVP form"
+            title={t('rsvp.formTitle')}
             className="w-full min-h-[400px] border-0 rounded-2xl"
             onLoad={() => setIframeLoaded(true)}
             initial={shouldReduceMotion ? false : { opacity: 0 }}

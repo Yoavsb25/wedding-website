@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { site } from '../data/site';
 import { duration, easing } from '../theme/tokens';
 
@@ -27,16 +28,17 @@ const ringIcon = (
   </svg>
 );
 
-const partsConfig = [
-  { key: 'days', label: 'days' },
-  { key: 'hours', label: 'hours' },
-  { key: 'minutes', label: 'minutes' },
-  { key: 'seconds', label: 'seconds' },
-];
-
 export default function Countdown() {
   const [timeLeft, setTimeLeft] = useState(() => getTimeLeft(site.dateISO));
   const shouldReduceMotion = useReducedMotion();
+  const { t } = useTranslation();
+
+  const partsConfig = [
+    { key: 'days', label: t('countdown.days') },
+    { key: 'hours', label: t('countdown.hours') },
+    { key: 'minutes', label: t('countdown.minutes') },
+    { key: 'seconds', label: t('countdown.seconds') },
+  ];
 
   useEffect(() => {
     const tick = () => setTimeLeft(getTimeLeft(site.dateISO));
@@ -48,14 +50,13 @@ export default function Countdown() {
   if (timeLeft === null) {
     return (
       <div className="text-center" role="status" aria-live="polite">
-        <p className="font-display text-2xl text-brand-700">We did!</p>
+        <p className="font-display text-2xl text-brand-700">{t('countdown.done')}</p>
       </div>
     );
   }
 
   return (
     <div className="w-full min-w-0 max-w-[560px] mx-auto overflow-hidden" role="status" aria-live="polite" aria-atomic="true">
-      {/* Header: Countdown to "I do" with ring icon and decorative line */}
       <div className="flex flex-col items-center gap-3 mb-6">
         <div className="flex items-center gap-2">
           <span className="h-px w-6 bg-brand-300/60" aria-hidden />
@@ -63,7 +64,7 @@ export default function Countdown() {
           <span className="h-px w-6 bg-brand-300/60" aria-hidden />
         </div>
         <h3 className="font-display text-lg md:text-xl text-brand-800 tracking-wide">
-          Countdown to &ldquo;I do&rdquo;
+          {t('countdown.heading')}
         </h3>
         <div className="flex items-center gap-2 w-full max-w-[200px]">
           <span className="h-px flex-1 bg-brand-300/60" aria-hidden />
@@ -72,7 +73,6 @@ export default function Countdown() {
         </div>
       </div>
 
-      {/* Four glass-style countdown cards */}
       <div className="grid grid-cols-4 gap-2 md:gap-4 min-w-0">
         {partsConfig.map(({ key, label }) => {
           const value = timeLeft[key];

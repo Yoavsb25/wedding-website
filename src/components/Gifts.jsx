@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { site } from '../data/site';
 import { fadeUp } from '../theme/motionVariants';
 import { CopyIcon, CheckIcon } from './icons';
@@ -10,6 +11,7 @@ const APP_LOGOS = {
 };
 
 function CopyField({ label, value }) {
+  const { t } = useTranslation();
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
@@ -30,11 +32,11 @@ function CopyField({ label, value }) {
       </div>
       <button
         onClick={handleCopy}
-        aria-label={`Copy ${label}`}
-        className="ml-4 flex items-center gap-1.5 text-sm text-brand-500 hover:text-brand-600 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 rounded-lg px-2 py-1.5 min-h-[36px]"
+        aria-label={t('gifts.copyLabel', { label })}
+        className="ms-4 flex items-center gap-1.5 text-sm text-brand-500 hover:text-brand-600 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 rounded-lg px-2 py-1.5 min-h-[36px]"
       >
         {copied ? <CheckIcon /> : <CopyIcon />}
-        <span className="w-10 text-left">{copied ? 'Copied' : 'Copy'}</span>
+        <span className="w-10 text-start">{copied ? t('gifts.copied') : t('gifts.copy')}</span>
       </button>
     </div>
   );
@@ -43,7 +45,8 @@ function CopyField({ label, value }) {
 
 export default function Gifts() {
   const shouldReduceMotion = useReducedMotion();
-  const { gifts, copy } = site;
+  const { t } = useTranslation();
+  const { gifts } = site;
 
   return (
     <section id="gifts" aria-labelledby="gifts-title" className="py-8 md:py-24 px-4">
@@ -65,11 +68,11 @@ export default function Gifts() {
             id="gifts-title"
             className="font-display text-section uppercase text-brand-900 tracking-widest mb-3"
           >
-            Wedding Gift
+            {t('gifts.heading')}
           </h2>
           <p className="text-brand-500 text-base md:text-lg max-w-md mx-auto leading-relaxed">
-            {copy.gifts.tagline}<br />
-            <span dangerouslySetInnerHTML={{ __html: copy.gifts.note }} />
+            {t('gifts.tagline')}<br />
+            <span dangerouslySetInnerHTML={{ __html: t('gifts.note') }} />
           </p>
         </motion.div>
 
@@ -82,23 +85,21 @@ export default function Gifts() {
           className="mb-4 md:mb-8"
         >
           <div className="rounded-2xl overflow-hidden border border-brand-200 ring-1 ring-brand-300/40 border-t-[3px] border-t-brand-500 shadow-[0_4px_24px_rgba(44,31,20,0.10)]">
-            {/* Warm cream header — gold as text accent, not background */}
             <div className="bg-brand-100 px-5 py-4 flex items-center justify-between border-b border-brand-200">
               <span className="font-display text-brand-700 text-lg tracking-wide">
-                Bank Transfer
+                {t('gifts.bankTransfer')}
               </span>
               <span className="flex items-center gap-1.5 text-brand-500 text-xs font-medium uppercase tracking-wider">
                 <CheckIcon />
-                Preferred · no fees
+                {t('gifts.preferred')}
               </span>
             </div>
-            {/* Fields */}
             <div className="px-6 py-5 bg-white/80">
-              <CopyField label="Bank Name" value={gifts.bankName} />
-              <CopyField label="Branch" value={gifts.branchNumber} />
-              <CopyField label="Account Number" value={gifts.accountNumber} />
-              <CopyField label="Account Holder" value={gifts.accountHolder} />
-         
+              <CopyField label={t('gifts.bankName')} value={gifts.bankName} />
+              <CopyField label={t('gifts.bankCode')} value={gifts.bankCode} />
+              <CopyField label={t('gifts.branch')} value={gifts.branchNumber} />
+              <CopyField label={t('gifts.accountNumber')} value={gifts.accountNumber} />
+              <CopyField label={t('gifts.accountHolder')} value={gifts.accountHolder} />
             </div>
           </div>
         </motion.div>
@@ -113,7 +114,7 @@ export default function Gifts() {
           <div className="flex items-center gap-3 mb-5" aria-hidden="true">
             <span className="h-px flex-1 bg-brand-200/60" />
             <span className="text-xs text-brand-300 uppercase tracking-widest whitespace-nowrap">
-              or pay quickly with
+              {t('gifts.quickPay')}
             </span>
             <span className="h-px flex-1 bg-brand-200/60" />
           </div>
