@@ -1,38 +1,8 @@
 import { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { site } from '../data/site';
-import { duration, easing } from '../theme/tokens';
-
-const CopyIcon = () => (
-  <svg
-    className="w-4 h-4 shrink-0"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="1.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <rect width="14" height="14" x="8" y="8" rx="2" />
-    <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
-  </svg>
-);
-
-const CheckIcon = () => (
-  <svg
-    className="w-4 h-4 shrink-0"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2.5"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <path d="M20 6L9 17l-5-5" />
-  </svg>
-);
+import { fadeUp } from '../theme/motionVariants';
+import { CopyIcon, CheckIcon } from './icons';
 
 const APP_LOGOS = {
   bit: `${import.meta.env.BASE_URL}images/bit-logo.png`,
@@ -70,18 +40,10 @@ function CopyField({ label, value }) {
   );
 }
 
-const sectionVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: duration.motion / 1000, ease: easing.soft },
-  },
-};
 
 export default function Gifts() {
   const shouldReduceMotion = useReducedMotion();
-  const { gifts } = site;
+  const { gifts, copy } = site;
 
   return (
     <section id="gifts" aria-labelledby="gifts-title" className="py-8 md:py-24 px-4">
@@ -91,7 +53,7 @@ export default function Gifts() {
           initial={shouldReduceMotion ? false : 'hidden'}
           whileInView="visible"
           viewport={{ once: true }}
-          variants={sectionVariants}
+          variants={fadeUp}
           className="text-center mb-6 md:mb-10"
         >
           <div className="flex items-center justify-center gap-2 mb-3 md:mb-6" aria-hidden="true">
@@ -106,8 +68,9 @@ export default function Gifts() {
             Wedding Gift
           </h2>
           <p className="text-brand-500 text-base md:text-lg max-w-md mx-auto leading-relaxed">
-            Thank you for celebrating with us ♡<br />
-            Gift details are below - <strong>bank transfer is preferred</strong></p>
+            {copy.gifts.tagline}<br />
+            {copy.gifts.note}
+          </p>
         </motion.div>
 
         {/* Bank transfer card — warm cream header + 3px gold top border signals priority */}
@@ -115,7 +78,7 @@ export default function Gifts() {
           initial={shouldReduceMotion ? false : 'hidden'}
           whileInView="visible"
           viewport={{ once: true }}
-          variants={sectionVariants}
+          variants={fadeUp}
           className="mb-4 md:mb-8"
         >
           <div className="rounded-2xl overflow-hidden border border-brand-200 ring-1 ring-brand-300/40 border-t-[3px] border-t-brand-500 shadow-[0_4px_24px_rgba(44,31,20,0.10)]">
@@ -147,7 +110,7 @@ export default function Gifts() {
           initial={shouldReduceMotion ? false : 'hidden'}
           whileInView="visible"
           viewport={{ once: true }}
-          variants={sectionVariants}
+          variants={fadeUp}
         >
           <div className="flex items-center gap-3 mb-5" aria-hidden="true">
             <span className="h-px flex-1 bg-brand-200/60" />

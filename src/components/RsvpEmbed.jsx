@@ -2,26 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { site } from '../data/site';
 import { duration, easing } from '../theme/tokens';
-
-const container = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.05,
-    },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 16 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: duration.motion / 1000, ease: easing.petal },
-  },
-};
+import { staggerContainer, fadeUpItem } from '../theme/motionVariants';
 
 export default function RsvpEmbed() {
   const [iframeLoaded, setIframeLoaded] = useState(false);
@@ -34,19 +15,19 @@ export default function RsvpEmbed() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      variants={container}
+      variants={staggerContainer}
     >
       <div className="max-w-[700px] mx-auto">
         <motion.h2
-          variants={item}
+          variants={fadeUpItem}
           className="font-display text-section uppercase text-brand-900 mb-4 text-center"
         >
           RSVP
         </motion.h2>
-        <motion.p variants={item} className="text-center text-brand-800 mb-4">
+        <motion.p variants={fadeUpItem} className="text-center text-brand-800 mb-4">
           {site.rsvpNote}
         </motion.p>
-        <motion.p variants={item} className="text-center mb-6">
+        <motion.p variants={fadeUpItem} className="text-center mb-6">
           <a
             href={site.rsvpFormEmbedUrl.replace('/viewform?embedded=true', '/viewform')}
             target="_blank"
@@ -56,7 +37,7 @@ export default function RsvpEmbed() {
             Open form in new tab
           </a>
         </motion.p>
-        <motion.div variants={item} className="relative min-h-[400px] rounded-2xl overflow-hidden bg-brand-100">
+        <motion.div variants={fadeUpItem} className="relative min-h-[400px] rounded-2xl overflow-hidden bg-brand-100">
           <AnimatePresence mode="wait">
             {!iframeLoaded && (
               <motion.div

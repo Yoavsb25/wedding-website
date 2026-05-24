@@ -1,26 +1,7 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { site } from '../data/site';
 import { duration, easing } from '../theme/tokens';
-
-const container = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1,
-      delayChildren: 0.05,
-    },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 16 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: duration.motion / 1000, ease: easing.petal },
-  },
-};
+import { staggerContainer, fadeUpItem } from '../theme/motionVariants';
 
 export default function Location() {
   const shouldReduceMotion = useReducedMotion();
@@ -32,16 +13,16 @@ export default function Location() {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
-      variants={container}
+      variants={staggerContainer}
     >
       <div className="max-w-[900px] mx-auto">
         <motion.h2
-          variants={item}
+          variants={fadeUpItem}
           className="font-display text-section uppercase text-brand-900 mb-6 text-center"
         >
           Location
         </motion.h2>
-        <motion.div variants={item} className="card text-center space-y-6">
+        <motion.div variants={fadeUpItem} className="card text-center space-y-6">
           <p className="font-display text-xl text-brand-900">{site.venueFullName}</p>
           <p className="text-brand-800">{site.address}</p>
 
