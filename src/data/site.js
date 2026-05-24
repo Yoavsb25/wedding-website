@@ -27,7 +27,7 @@ export const site = {
     'There is no arrangement with any public parking in the area. The closest nearby parking is Beit Hadar Parking Lot, a short walk from the venue at 48 Rothschild Boulevard.',
   /** Bank transfer & quick-pay details for the Gifts section */
   gifts: {
-    accountHolder: 'Maya & Yoav',
+    accountHolder: 'Maya Amir, Yoav Sabrovsky',
     bankName: 'Discount Bank',
     bankCode: '11',
     branchNumber: '198',
