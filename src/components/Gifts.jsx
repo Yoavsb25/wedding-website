@@ -4,20 +4,38 @@ import { site } from '../data/site';
 import { duration, easing } from '../theme/tokens';
 
 const CopyIcon = () => (
-  <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+  <svg
+    className="w-4 h-4 shrink-0"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
     <rect width="14" height="14" x="8" y="8" rx="2" />
     <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" />
   </svg>
 );
 
 const CheckIcon = () => (
-  <svg className="w-4 h-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+  <svg
+    className="w-4 h-4 shrink-0"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
     <path d="M20 6L9 17l-5-5" />
   </svg>
 );
 
 const APP_LOGOS = {
-  bit:    `${import.meta.env.BASE_URL}images/bit-logo.png`,
+  bit: `${import.meta.env.BASE_URL}images/bit-logo.png`,
   paybox: `${import.meta.env.BASE_URL}images/paybox-logo.jpg`,
 };
 
@@ -68,12 +86,11 @@ export default function Gifts() {
   return (
     <section id="gifts" aria-labelledby="gifts-title" className="py-16 md:py-24 px-4">
       <div className="max-w-xl mx-auto">
-
         {/* Header */}
         <motion.div
           initial={shouldReduceMotion ? false : 'hidden'}
           whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
+          viewport={{ once: true }}
           variants={sectionVariants}
           className="text-center mb-10"
         >
@@ -89,45 +106,55 @@ export default function Gifts() {
             Wedding Gift
           </h2>
           <p className="text-brand-500 text-base md:text-lg max-w-md mx-auto leading-relaxed">
-            Your presence is the greatest gift — but if you'd like to celebrate with a contribution, the details are below.
-          </p>
+            Thank you for celebrating with us ♡<br />
+            Gift details are below - <strong>bank transfer is preferred</strong></p>
         </motion.div>
 
-        {/* Bank transfer card */}
+        {/* Bank transfer card — warm cream header + 3px gold top border signals priority */}
         <motion.div
           initial={shouldReduceMotion ? false : 'hidden'}
           whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
+          viewport={{ once: true }}
           variants={sectionVariants}
           className="mb-8"
         >
-          <p className="text-xs text-brand-400 uppercase tracking-widest text-center mb-4">
-            Bank Transfer
-          </p>
-          <div className="card">
-            <CopyField label="Bank Code" value={gifts.bankCode} />
-            <CopyField label="Branch" value={gifts.branchNumber} />
-            <CopyField label="Account Number" value={gifts.accountNumber} />
-            <div className="pt-3">
-              <p className="text-xs text-brand-400 uppercase tracking-wider">Account Holder</p>
-              <p className="text-brand-800 font-medium mt-0.5">{gifts.accountHolder}</p>
+          <div className="rounded-2xl overflow-hidden border border-brand-200 ring-1 ring-brand-300/40 border-t-[3px] border-t-brand-500 shadow-[0_4px_24px_rgba(44,31,20,0.10)]">
+            {/* Warm cream header — gold as text accent, not background */}
+            <div className="bg-brand-100 px-5 py-4 flex items-center justify-between border-b border-brand-200">
+              <span className="font-display text-brand-700 text-lg tracking-wide">
+                Bank Transfer
+              </span>
+              <span className="flex items-center gap-1.5 text-brand-500 text-xs font-medium uppercase tracking-wider">
+                <CheckIcon />
+                Preferred · no fees
+              </span>
+            </div>
+            {/* Fields */}
+            <div className="px-6 py-5 bg-white/80">
+              <CopyField label="Bank Code" value={gifts.bankCode} />
+              <CopyField label="Branch" value={gifts.branchNumber} />
+              <CopyField label="Account Number" value={gifts.accountNumber} />
+              <div className="pt-3">
+                <p className="text-xs text-brand-400 uppercase tracking-wider">Account Holder</p>
+                <p className="text-brand-800 font-medium mt-0.5">{gifts.accountHolder}</p>
+              </div>
             </div>
           </div>
         </motion.div>
 
-        {/* Quick pay options */}
+        {/* Quick pay options — clearly secondary */}
         <motion.div
           initial={shouldReduceMotion ? false : 'hidden'}
           whileInView="visible"
-          viewport={{ once: true, margin: '-60px' }}
+          viewport={{ once: true }}
           variants={sectionVariants}
         >
           <div className="flex items-center gap-3 mb-5" aria-hidden="true">
-            <span className="h-px flex-1 bg-brand-200/80" />
-            <span className="text-xs text-brand-400 uppercase tracking-widest whitespace-nowrap">
+            <span className="h-px flex-1 bg-brand-200/60" />
+            <span className="text-xs text-brand-300 uppercase tracking-widest whitespace-nowrap">
               or pay quickly with
             </span>
-            <span className="h-px flex-1 bg-brand-200/80" />
+            <span className="h-px flex-1 bg-brand-200/60" />
           </div>
           <div className="grid grid-cols-2 gap-3">
             {gifts.quickPay.map(({ id, label, app, url }) => (
@@ -150,7 +177,6 @@ export default function Gifts() {
             ))}
           </div>
         </motion.div>
-
       </div>
     </section>
   );
