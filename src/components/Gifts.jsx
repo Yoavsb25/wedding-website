@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { site } from '../data/site';
 import { duration, easing } from '../theme/tokens';
@@ -82,38 +82,6 @@ const sectionVariants = {
 export default function Gifts() {
   const shouldReduceMotion = useReducedMotion();
   const { gifts } = site;
-  const payboxRef = useRef(null);
-  const quickPayRef = useRef(null);
-
-  // #region agent log
-  useEffect(() => {
-    const log = (msg, data, hypothesisId) => {
-      fetch('http://127.0.0.1:7791/ingest/b57918ff-6c01-45c6-98e4-bf188597c0a6', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'X-Debug-Session-Id': '5129d4' },
-        body: JSON.stringify({ sessionId: '5129d4', runId: 'post-fix', location: 'Gifts.jsx:mount', message: msg, data, hypothesisId, timestamp: Date.now() }),
-      }).catch(() => {});
-    };
-
-    const vh = window.innerHeight;
-    const hash = window.location.hash;
-    log('viewport info', { viewportHeight: vh, hash, userAgent: navigator.userAgent }, 'H-A');
-
-    // H-A: check bounding rect of PayBox buttons vs viewport
-    if (payboxRef.current) {
-      const rect = payboxRef.current.getBoundingClientRect();
-      log('paybox bounding rect', { top: rect.top, bottom: rect.bottom, height: rect.height, viewportHeight: vh, isBelow: rect.top > vh }, 'H-A');
-    } else {
-      log('paybox ref not found', {}, 'H-A');
-    }
-
-    // H-B: check computed style of quickPay motion.div
-    if (quickPayRef.current) {
-      const style = window.getComputedStyle(quickPayRef.current);
-      log('quickPay container computed style', { opacity: style.opacity, transform: style.transform, visibility: style.visibility }, 'H-B');
-    }
-  }, []);
-  // #endregion
 
   return (
     <section id="gifts" aria-labelledby="gifts-title" className="py-8 md:py-24 px-4">
@@ -176,7 +144,6 @@ export default function Gifts() {
 
         {/* Quick pay options — clearly secondary */}
         <motion.div
-          ref={quickPayRef}
           initial={shouldReduceMotion ? false : 'hidden'}
           whileInView="visible"
           viewport={{ once: true }}
@@ -193,7 +160,6 @@ export default function Gifts() {
             {gifts.quickPay.map(({ id, label, app, url }) => (
               <a
                 key={id}
-                ref={id === 'maya-paybox' ? payboxRef : undefined}
                 href={url}
                 target="_blank"
                 rel="noopener noreferrer"
