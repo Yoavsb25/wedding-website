@@ -5,6 +5,7 @@ import Schedule from './components/Schedule';
 import Location from './components/Location';
 import Parking from './components/Parking';
 import RsvpEmbed from './components/RsvpEmbed';
+import Gifts from './components/Gifts';
 import EventSchema from './components/EventSchema';
 import { site } from './data/site';
 
@@ -39,6 +40,8 @@ function App() {
         <Parking />
         <div className="section-divider mx-auto max-w-[700px]" aria-hidden="true" />
         <RsvpEmbed />
+        <div className="section-divider mx-auto max-w-[700px]" aria-hidden="true" />
+        <Gifts />
       </main>
       <footer className="py-12 md:py-16 text-center bg-brand-900 text-brand-100 mt-16">
         <p className="font-display text-2xl md:text-3xl uppercase tracking-widest">{site.coupleNames}</p>
@@ -62,6 +65,8 @@ function App() {
           <a href="#location" className="text-brand-300 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 rounded px-2 py-2 min-h-[44px] inline-flex items-center">Location</a>
           <span className="text-brand-600" aria-hidden="true">|</span>
           <a href="#rsvp" className="text-brand-300 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 rounded px-2 py-2 min-h-[44px] inline-flex items-center">RSVP</a>
+          <span className="text-brand-600" aria-hidden="true">|</span>
+          <a href="#gifts" className="text-brand-300 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 rounded px-2 py-2 min-h-[44px] inline-flex items-center">Gift</a>
         </nav>
         <p className="mt-8 text-brand-500 text-xs">© {new Date().getFullYear()} – With love</p>
       </footer>
