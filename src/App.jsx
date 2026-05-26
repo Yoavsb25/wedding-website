@@ -30,10 +30,13 @@ function App() {
       const el = document.querySelector(hash);
       if (el) el.scrollIntoView({ behavior: 'instant' });
     };
-    // Playfair Display uses font-display:swap — it loads async and reflows all
-    // sections above Gifts, invalidating scroll positions measured before load.
-    // Wait for fonts + one rAF so layout is stable before scrolling.
-    document.fonts.ready.then(() => requestAnimationFrame(doScroll));
+    // Wait for full page load so layout is stable before scrolling.
+    // fonts.ready alone misses iframes/images that expand after fonts load and push sections down.
+    if (document.readyState === 'complete') {
+      requestAnimationFrame(doScroll);
+    } else {
+      window.addEventListener('load', () => requestAnimationFrame(doScroll), { once: true });
+    }
   }, []);
 
   return (
