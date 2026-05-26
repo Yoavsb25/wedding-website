@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useLayoutEffect } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { duration, easing } from './theme/tokens';
@@ -11,6 +11,47 @@ import EventSchema from './components/EventSchema';
 import { site } from './data/site';
 import LanguageSwitcher from './components/LanguageSwitcher';
 
+const HASH_SCROLL_SETTLE_MS = 2500;
+const HASH_SCROLL_MAX_WAIT_MS = 10000;
+const HASH_SCROLL_TOLERANCE_PX = 1;
+
+function getHashTarget() {
+  const id = window.location.hash.slice(1);
+  if (!id) return null;
+
+  try {
+    return document.getElementById(decodeURIComponent(id));
+  } catch {
+    return document.getElementById(id);
+  }
+}
+
+function waitForHashLayoutInputs(target) {
+  const imagesBeforeTarget = Array.from(document.images).filter((img) => {
+    if (img.complete || img.loading === 'lazy') return false;
+    return Boolean(img.compareDocumentPosition(target) & Node.DOCUMENT_POSITION_FOLLOWING);
+  });
+
+  const imagesReady = Promise.all(
+    imagesBeforeTarget.map((img) => new Promise((resolve) => {
+      img.addEventListener('load', resolve, { once: true });
+      img.addEventListener('error', resolve, { once: true });
+    }))
+  );
+
+  const fontsReady = document.fonts?.ready ?? Promise.resolve();
+  return Promise.allSettled([imagesReady, fontsReady]);
+}
+
+function withTimeout(promise, ms) {
+  return Promise.race([
+    promise,
+    new Promise((resolve) => {
+      window.setTimeout(resolve, ms);
+    }),
+  ]);
+}
+
 function App() {
   const shouldReduceMotion = useReducedMotion();
   const { t, i18n } = useTranslation();
@@ -20,36 +61,56 @@ function App() {
     { day: 'numeric', month: 'long', year: 'numeric' }
   );
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if ('scrollRestoration' in history) {
       history.scrollRestoration = 'manual';
     }
-    const hash = window.location.hash;
-    if (!hash) return;
-    const doScroll = () => {
-      const el = document.querySelector(hash);
-      if (el) el.scrollIntoView({ behavior: 'instant' });
+
+    if (!window.location.hash) return undefined;
+
+    let frameId;
+    let cancelled = false;
+    const root = document.documentElement;
+
+    const scrollToTarget = (target) => {
+      const top = target.getBoundingClientRect().top + window.scrollY;
+      if (Math.abs(target.getBoundingClientRect().top) > HASH_SCROLL_TOLERANCE_PX) {
+        window.scrollTo({ top, left: 0, behavior: 'auto' });
+      }
     };
-    // Wait for blocking layout inputs before scrolling. Lazy images below the
-    // initial viewport must not block hash navigation because they may not load
-    // until after the page scrolls.
-    const scrollWhenLayoutStable = () => {
-      const pending = Array.from(document.images).filter(img => !img.complete);
-      const blockingImages = pending.filter(img => img.loading !== 'lazy');
-      const imagesReady = Promise.all(
-        blockingImages.map(img => new Promise(res => {
-          img.addEventListener('load', res, { once: true });
-          img.addEventListener('error', res, { once: true });
-        }))
-      );
-      Promise.all([imagesReady, document.fonts.ready])
-        .then(() => requestAnimationFrame(doScroll));
+
+    const keepTargetAligned = () => {
+      const target = getHashTarget();
+      if (!target || cancelled) return;
+
+      root.classList.add('hash-scroll-active');
+
+      const tick = (stopAt) => {
+        if (cancelled) return;
+
+        scrollToTarget(target);
+
+        if (performance.now() < stopAt) {
+          frameId = requestAnimationFrame(() => tick(stopAt));
+        } else {
+          root.classList.remove('hash-scroll-active');
+        }
+      };
+
+      withTimeout(waitForHashLayoutInputs(target), HASH_SCROLL_MAX_WAIT_MS).then(() => {
+        if (cancelled) return;
+        const stopAt = performance.now() + HASH_SCROLL_SETTLE_MS;
+        frameId = requestAnimationFrame(() => tick(stopAt));
+      });
     };
-    if (document.readyState === 'complete') {
-      scrollWhenLayoutStable();
-    } else {
-      window.addEventListener('load', scrollWhenLayoutStable, { once: true });
-    }
+
+    frameId = requestAnimationFrame(keepTargetAligned);
+
+    return () => {
+      cancelled = true;
+      root.classList.remove('hash-scroll-active');
+      cancelAnimationFrame(frameId);
+    };
   }, []);
 
   return (
