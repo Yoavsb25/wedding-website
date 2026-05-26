@@ -29,7 +29,7 @@ export const site = {
   copy: {
     gifts: {
       tagline: "Thank you for celebrating with us ♡",
-      note: "Gift details are below — <strong>bank transfer is preferred</strong>",
+      note: "<strong>Bank transfer is preferred.</strong>",
     },
   },
   /** Bank transfer & quick-pay details for the Gifts section */
@@ -40,10 +40,10 @@ export const site = {
     branchNumber: '198',
     accountNumber: '252774436',
     quickPay: [
-      { id: 'maya-paybox', label: "Maya's PayBox", app: 'paybox', url: 'https://links.payboxapp.com/w7v0RQfQ0Ub' },
-      { id: 'yoav-paybox', label: "Yoav's PayBox", app: 'paybox', url: 'https://links.payboxapp.com/JU2fa3esZUb' },
-      { id: 'maya-bit',    label: "Maya's Bit",    app: 'bit',    url: 'https://www.bitpay.co.il/app/me/841348C9-D873-56A7-D192-AD125C3FD51D67B2' },
-      { id: 'yoav-bit',    label: "Yoav's Bit",    app: 'bit',    url: 'https://www.bitpay.co.il/app/me/69A41A65-45B1-CE41-2F02-73CA549988C7B5FB' },
+      { id: 'maya-paybox', label: "PayBox", app: 'paybox', side: 'maya', url: 'https://links.payboxapp.com/w7v0RQfQ0Ub' },
+      { id: 'yoav-paybox', label: "PayBox", app: 'paybox', side: 'yoav', url: 'https://links.payboxapp.com/JU2fa3esZUb' },
+      { id: 'maya-bit',    label: "Bit",    app: 'bit',    side: 'maya', url: 'https://www.bitpay.co.il/app/me/841348C9-D873-56A7-D192-AD125C3FD51D67B2' },
+      { id: 'yoav-bit',    label: "Bit",    app: 'bit',    side: 'yoav', url: 'https://www.bitpay.co.il/app/me/69A41A65-45B1-CE41-2F02-73CA549988C7B5FB' },
     ],
   },
 };
