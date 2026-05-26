@@ -30,13 +30,14 @@ function App() {
       const el = document.querySelector(hash);
       if (el) el.scrollIntoView({ behavior: 'instant' });
     };
-    // Two sources of layout shift after scroll: React-inserted images (not covered
-    // by window.load) and Google Fonts swap (display=swap reflows text on arrival).
-    // Wait for both before scrolling so the gifts section position is stable.
+    // Wait for blocking layout inputs before scrolling. Lazy images below the
+    // initial viewport must not block hash navigation because they may not load
+    // until after the page scrolls.
     const scrollWhenLayoutStable = () => {
       const pending = Array.from(document.images).filter(img => !img.complete);
+      const blockingImages = pending.filter(img => img.loading !== 'lazy');
       const imagesReady = Promise.all(
-        pending.map(img => new Promise(res => {
+        blockingImages.map(img => new Promise(res => {
           img.addEventListener('load', res, { once: true });
           img.addEventListener('error', res, { once: true });
         }))
