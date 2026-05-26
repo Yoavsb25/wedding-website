@@ -38,7 +38,7 @@ export const site = {
     bankName: 'Discount Bank - 11',
     bankCode: '11',
     branchNumber: '198',
-    accountNumber: '123456789',
+    accountNumber: '252774436',
     quickPay: [
       { id: 'maya-paybox', label: "Maya's PayBox", app: 'paybox', url: 'https://links.payboxapp.com/w7v0RQfQ0Ub' },
       { id: 'yoav-paybox', label: "Yoav's PayBox", app: 'paybox', url: 'https://links.payboxapp.com/JU2fa3esZUb' },
