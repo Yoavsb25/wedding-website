@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { schedule } from '../data/schedule';
 import { duration, easing } from '../theme/tokens';
 
@@ -57,6 +58,8 @@ const iconKeys = ['clock', 'rings', 'dinner'];
 
 export default function Schedule() {
   const shouldReduceMotion = useReducedMotion();
+  const { t, i18n } = useTranslation();
+  const isRTL = i18n.language === 'he';
 
   return (
     <motion.section
@@ -68,7 +71,6 @@ export default function Schedule() {
       variants={container}
     >
       <div className="max-w-[900px] mx-auto">
-        {/* Decorative line above title */}
         <motion.div
           variants={item}
           className="flex items-center justify-center gap-2 mb-6"
@@ -83,7 +85,7 @@ export default function Schedule() {
           variants={item}
           className="font-display text-section uppercase text-brand-900 mb-12 md:mb-16 text-center"
         >
-          Schedule
+          {t('schedule.heading')}
         </motion.h2>
 
         {/* Desktop: horizontal cards with timeline line and markers below */}
@@ -113,7 +115,7 @@ export default function Schedule() {
                   >
                     {entry.time}
                   </time>
-                  <span className="font-display text-lg text-brand-900">{entry.title}</span>
+                  <span className="font-display text-lg text-brand-900">{t(`schedule.${entry.key}`)}</span>
                   {entry.location && (
                     <span className="font-display text-sm text-brand-600">{entry.location}</span>
                   )}
@@ -121,7 +123,7 @@ export default function Schedule() {
               </motion.li>
             ))}
           </ul>
-          {/* Timeline line with markers below cards (same grid as cards) */}
+          {/* Timeline line with markers below cards */}
           <motion.div
             variants={item}
             className="relative grid grid-cols-3 gap-4 lg:gap-6 mt-6"
@@ -139,11 +141,11 @@ export default function Schedule() {
           </motion.div>
         </div>
 
-        {/* Mobile: vertical timeline */}
-        <ul className="md:hidden relative pl-6 space-y-8" aria-label="Wedding schedule">
+        {/* Mobile: vertical timeline — logical properties for RTL */}
+        <ul className="md:hidden relative ps-6 space-y-8" aria-label="Wedding schedule">
           {/* Vertical line */}
           <div
-            className="absolute left-[5px] top-2 bottom-2 w-px bg-brand-300/70"
+            className="absolute start-[5px] top-2 bottom-2 w-px bg-brand-300/70"
             aria-hidden
           />
           {schedule.map((entry, i) => (
@@ -154,14 +156,14 @@ export default function Schedule() {
             >
               {/* Dot on line */}
               <span
-                className="absolute left-0 top-5 -translate-x-1/2 w-3 h-3 rounded-full bg-brand-500 border-2 border-white shadow-sm"
+                className="absolute start-0 top-5 -translate-x-1/2 rtl:translate-x-1/2 w-3 h-3 rounded-full bg-brand-500 border-2 border-white shadow-sm"
                 aria-hidden
               />
               <motion.div
                 className="rounded-2xl border border-brand-200/90 bg-white/85 backdrop-blur-sm p-5 shadow-sm"
                 whileHover={
                   !shouldReduceMotion
-                    ? { x: 4, boxShadow: '0 8px 20px rgba(26,35,50,0.08)' }
+                    ? { x: isRTL ? -4 : 4, boxShadow: '0 8px 20px rgba(26,35,50,0.08)' }
                     : undefined
                 }
                 transition={{ duration: duration.motion / 1000, ease: easing.soft }}
@@ -174,7 +176,7 @@ export default function Schedule() {
                     {entry.time}
                   </time>
                 </div>
-                <span className="font-display text-lg text-brand-900 block">{entry.title}</span>
+                <span className="font-display text-lg text-brand-900 block">{t(`schedule.${entry.key}`)}</span>
                 {entry.location && (
                   <span className="font-display text-sm text-brand-600 mt-1 block">
                     {entry.location}

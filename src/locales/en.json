@@ -1,0 +1,88 @@
+{
+  "nav": {
+    "home": "Home",
+    "schedule": "Schedule",
+    "location": "Location",
+    "parking": "Parking",
+    "gift": "Gift"
+  },
+  "hero": {
+    "pageTitle": "Maya & Yoav's Wedding",
+    "coupleNames": "Maya & Yoav",
+    "gettingMarried": "We're Getting Married",
+    "addToCalendar": "Add to Calendar",
+    "coupleIllustrationAlt": "Illustration of the couple"
+  },
+  "schedule": {
+    "heading": "Schedule",
+    "reception": "Reception",
+    "ceremony": "Ceremony",
+    "dinner": "Dinner"
+  },
+  "location": {
+    "heading": "Location",
+    "address": "48 Rothschild Boulevard, Tel Aviv",
+    "findUs": "Find us on the map",
+    "openMaps": "Open in Google Maps",
+    "mapTitle": "Map showing {{venue}} location",
+    "venueExteriorAlt": "{{venue}} – exterior",
+    "venueGardenAlt": "{{venue}} – garden"
+  },
+  "parking": {
+    "heading": "Parking",
+    "name": "Beit Hadar Parking Lot",
+    "openMaps": "Open in Google Maps",
+    "instructions": "There is no arrangement with any public parking in the area. The closest nearby parking is Beit Hadar Parking Lot, a short walk from the venue at 48 Rothschild Boulevard."
+  },
+  "gifts": {
+    "heading": "Wedding Gift",
+    "tagline": "Thank you for celebrating with us ♡",
+    "note": "Gift details are below — <strong>bank transfer is preferred</strong>",
+    "bankTransfer": "Bank Transfer",
+    "preferred": "Preferred · no fees",
+    "quickPayLabel": "or pay quickly with",
+    "bankName": "Bank Name",
+    "bankNameValue": "Discount Bank - 11",
+    "bankCode": "Bank Code",
+    "branch": "Branch",
+    "accountNumber": "Account Number",
+    "accountHolder": "Account Holder",
+    "whoseGuest": "Whose guest are you?",
+    "mayasGuest": "Maya's guest",
+    "yoavsGuest": "Yoav's guest",
+    "payboxPrompt": "Can't do a bank transfer?",
+    "bitPrompt": "Last resort — Bit",
+    "copy": "Copy",
+    "copied": "Copied",
+    "copyLabel": "Copy {{label}}",
+    "quickPay": {
+      "maya-bit": "Maya's Bit",
+      "yoav-bit": "Yoav's Bit",
+      "maya-paybox": "Maya's PayBox",
+      "yoav-paybox": "Yoav's PayBox"
+    }
+  },
+  "share": {
+    "label": "Share",
+    "ariaLabel": "Share this page",
+    "copied": "Link copied!",
+    "error": "Could not share or copy"
+  },
+  "calendar": {
+    "apple": "Apple Calendar",
+    "google": "Google Calendar"
+  },
+  "countdown": {
+    "heading": "Countdown to \"I do\"",
+    "done": "We did!",
+    "days": "days",
+    "hours": "hours",
+    "minutes": "minutes",
+    "seconds": "seconds"
+  },
+  "footer": {
+    "skipLink": "Skip to main content",
+    "love": "© {{year}} – With love",
+    "instagramLabel": "Instagram or wedding album"
+  }
+}

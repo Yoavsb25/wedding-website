@@ -1,10 +1,12 @@
 import { motion, useReducedMotion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { site } from '../data/site';
 import { duration, easing } from '../theme/tokens';
 import { staggerContainer, fadeUpItem } from '../theme/motionVariants';
 
 export default function Location() {
   const shouldReduceMotion = useReducedMotion();
+  const { t } = useTranslation();
 
   return (
     <motion.section
@@ -20,11 +22,11 @@ export default function Location() {
           variants={fadeUpItem}
           className="font-display text-section uppercase text-brand-900 mb-6 text-center"
         >
-          Location
+          {t('location.heading')}
         </motion.h2>
         <motion.div variants={fadeUpItem} className="card text-center space-y-6">
           <p className="font-display text-xl text-brand-900">{site.venueFullName}</p>
-          <p className="text-brand-800">{site.address}</p>
+          <p className="text-brand-800">{t('location.address')}</p>
 
           {site.venueImages && site.venueImages.length > 0 && (
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -32,7 +34,9 @@ export default function Location() {
                 <div key={path} className="rounded-2xl overflow-hidden shadow-md aspect-[4/3] min-h-[240px]">
                   <motion.img
                     src={`${import.meta.env.BASE_URL}${path.replace(/^\//, '')}`}
-                    alt={i === 0 ? `${site.venueFullName} – exterior` : `${site.venueFullName} – garden`}
+                    alt={i === 0
+                      ? t('location.venueExteriorAlt', { venue: site.venueFullName })
+                      : t('location.venueGardenAlt', { venue: site.venueFullName })}
                     className="w-full h-full object-cover"
                     loading="lazy"
                     sizes="(min-width: 640px) 50vw, 100vw"
@@ -45,11 +49,11 @@ export default function Location() {
           )}
 
           <div className="space-y-2">
-            <p className="text-brand-700 font-display text-sm font-medium">Find us on the map</p>
+            <p className="text-brand-700 font-display text-sm font-medium">{t('location.findUs')}</p>
             <div className="rounded-2xl overflow-hidden border border-brand-200 aspect-video w-full max-h-[400px] min-h-[280px]">
               <iframe
                 src={site.mapsEmbedUrl}
-                title={`Map showing ${site.venueFullName} location`}
+                title={t('location.mapTitle', { venue: site.venueFullName })}
                 className="w-full h-full min-h-[280px] border-0"
                 allowFullScreen
                 loading="lazy"
@@ -67,7 +71,7 @@ export default function Location() {
             whileTap={!shouldReduceMotion ? { scale: 0.98 } : undefined}
             transition={{ duration: duration.motion / 1000, ease: easing.soft }}
           >
-            Open in Google Maps
+            {t('location.openMaps')}
           </motion.a>
         </motion.div>
       </div>

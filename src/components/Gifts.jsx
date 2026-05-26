@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { site } from '../data/site';
 import { fadeUp } from '../theme/motionVariants';
 import { CopyIcon, CheckIcon } from './icons';
@@ -10,6 +11,7 @@ const APP_LOGOS = {
 };
 
 function CopyField({ label, value }) {
+  const { t } = useTranslation();
   const [copied, setCopied] = useState(false);
 
   const handleCopy = async () => {
@@ -30,21 +32,22 @@ function CopyField({ label, value }) {
       </div>
       <button
         onClick={handleCopy}
-        aria-label={`Copy ${label}`}
-        className="ml-4 flex items-center gap-1.5 text-sm text-brand-500 hover:text-brand-600 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 rounded-lg px-2 py-1.5 min-h-[36px]"
+        aria-label={t('gifts.copyLabel', { label })}
+        className="ms-4 flex items-center gap-1.5 text-sm text-brand-500 hover:text-brand-600 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 rounded-lg px-2 py-1.5 min-h-[36px]"
       >
         {copied ? <CheckIcon /> : <CopyIcon />}
-        <span className="w-10 text-left">{copied ? 'Copied' : 'Copy'}</span>
+        <span className="w-10 text-start">{copied ? t('gifts.copied') : t('gifts.copy')}</span>
       </button>
     </div>
   );
 }
 
 function SideSelector({ value, onChange }) {
+  const { t } = useTranslation();
   return (
     <div className="mb-4">
       <p className="text-xs text-brand-400 uppercase tracking-wider mb-2">
-        Whose guest are you?
+        {t('gifts.whoseGuest')}
       </p>
       <div className="flex gap-2">
         {['maya', 'yoav'].map((side) => (
@@ -57,7 +60,7 @@ function SideSelector({ value, onChange }) {
                 : 'border-brand-200 bg-white/80 text-brand-500 hover:border-brand-400'
               }`}
           >
-            {side === 'maya' ? "Maya's guest" : "Yoav's guest"}
+            {side === 'maya' ? t('gifts.mayasGuest') : t('gifts.yoavsGuest')}
           </button>
         ))}
       </div>
@@ -114,7 +117,8 @@ function PayLink({ entry }) {
 
 export default function Gifts() {
   const shouldReduceMotion = useReducedMotion();
-  const { gifts, copy } = site;
+  const { t } = useTranslation();
+  const { gifts } = site;
 
   const [sideSelection, setSideSelection] = useState(null);
   const [payboxOpen, setPayboxOpen] = useState(false);
@@ -147,11 +151,11 @@ export default function Gifts() {
             id="gifts-title"
             className="font-display text-section uppercase text-brand-900 tracking-widest mb-3"
           >
-            Wedding Gift
+            {t('gifts.heading')}
           </h2>
           <p className="text-brand-500 text-base md:text-lg max-w-md mx-auto leading-relaxed">
-            {copy.gifts.tagline}<br />
-            <span dangerouslySetInnerHTML={{ __html: copy.gifts.note }} />
+            {t('gifts.tagline')}<br />
+            <span dangerouslySetInnerHTML={{ __html: t('gifts.note') }} />
           </p>
         </motion.div>
 
@@ -166,18 +170,18 @@ export default function Gifts() {
           <div className="rounded-2xl overflow-hidden border border-brand-200 ring-1 ring-brand-300/40 border-t-[3px] border-t-brand-500 shadow-[0_4px_24px_rgba(44,31,20,0.10)]">
             <div className="bg-brand-100 px-5 py-4 flex items-center justify-between border-b border-brand-200">
               <span className="font-display text-brand-700 text-lg tracking-wide">
-                Bank Transfer
+                {t('gifts.bankTransfer')}
               </span>
               <span className="flex items-center gap-1.5 text-brand-500 text-xs font-medium uppercase tracking-wider">
                 <CheckIcon />
-                <strong>Preferred • No Fees</strong>
+                <strong>{t('gifts.preferred')}</strong>
               </span>
             </div>
             <div className="px-6 py-5 bg-white/80">
-              <CopyField label="Bank Name" value={gifts.bankName} />
-              <CopyField label="Branch" value={gifts.branchNumber} />
-              <CopyField label="Account Number" value={gifts.accountNumber} />
-              <CopyField label="Account Holder" value={gifts.accountHolder} />
+              <CopyField label={t('gifts.bankName')} value={gifts.bankName} />
+              <CopyField label={t('gifts.branch')} value={gifts.branchNumber} />
+              <CopyField label={t('gifts.accountNumber')} value={gifts.accountNumber} />
+              <CopyField label={t('gifts.accountHolder')} value={gifts.accountHolder} />
             </div>
           </div>
         </motion.div>
@@ -192,7 +196,7 @@ export default function Gifts() {
         >
           {/* Tier 2 — PayBox */}
           <AccordionRow
-            label="Can't do a bank transfer?"
+            label={t('gifts.payboxPrompt')}
             open={payboxOpen}
             onToggle={() => setPayboxOpen((v) => !v)}
           >
@@ -202,7 +206,7 @@ export default function Gifts() {
 
           {/* Tier 3 — Bit */}
           <AccordionRow
-            label="Last resort — Bit"
+            label={t('gifts.bitPrompt')}
             open={bitOpen}
             onToggle={() => setBitOpen((v) => !v)}
           >

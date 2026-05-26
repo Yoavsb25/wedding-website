@@ -1,10 +1,12 @@
 import { motion, useReducedMotion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 import { site } from '../data/site';
 import { duration, easing } from '../theme/tokens';
 import { staggerContainer, fadeUpItem } from '../theme/motionVariants';
 
 export default function Parking() {
   const shouldReduceMotion = useReducedMotion();
+  const { t } = useTranslation();
 
   return (
     <motion.section
@@ -20,11 +22,11 @@ export default function Parking() {
           variants={fadeUpItem}
           className="font-display text-section uppercase text-brand-900 mb-6 text-center"
         >
-          Parking
+          {t('parking.heading')}
         </motion.h2>
         <motion.div variants={fadeUpItem} className="card text-center space-y-6">
-          <p className="font-display text-xl text-brand-900">{site.parkingName}</p>
-          <p className="text-brand-800">{site.parkingInstructions}</p>
+          <p className="font-display text-xl text-brand-900">{t('parking.name')}</p>
+          <p className="text-brand-800">{t('parking.instructions')}</p>
 
           <motion.a
             href={site.parkingMapsUrl}
@@ -35,7 +37,7 @@ export default function Parking() {
             whileTap={!shouldReduceMotion ? { scale: 0.98 } : undefined}
             transition={{ duration: duration.motion / 1000, ease: easing.soft }}
           >
-            Open in Google Maps
+            {t('parking.openMaps')}
           </motion.a>
         </motion.div>
       </div>
