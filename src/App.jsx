@@ -30,12 +30,28 @@ function App() {
       const el = document.querySelector(hash);
       if (el) el.scrollIntoView({ behavior: 'instant' });
     };
-    // Wait for full page load so layout is stable before scrolling.
-    // fonts.ready alone misses iframes/images that expand after fonts load and push sections down.
+    // React adds <img> elements after window.load fires, so they can still cause
+    // layout shifts when they decode. Wait for all pending images before scrolling.
+    const scrollAfterImages = () => {
+      const pending = Array.from(document.images).filter(img => !img.complete);
+      if (pending.length === 0) {
+        requestAnimationFrame(doScroll);
+      } else {
+        Promise.all(
+          pending.map(
+            img =>
+              new Promise(res => {
+                img.addEventListener('load', res, { once: true });
+                img.addEventListener('error', res, { once: true });
+              })
+          )
+        ).then(() => requestAnimationFrame(doScroll));
+      }
+    };
     if (document.readyState === 'complete') {
-      requestAnimationFrame(doScroll);
+      scrollAfterImages();
     } else {
-      window.addEventListener('load', () => requestAnimationFrame(doScroll), { once: true });
+      window.addEventListener('load', scrollAfterImages, { once: true });
     }
   }, []);
 

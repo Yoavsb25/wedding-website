@@ -5,6 +5,7 @@ import { duration, easing } from '../theme/tokens';
 import Countdown from './Countdown';
 import AddToCalendar from './AddToCalendar';
 import ShareButton from './ShareButton';
+import { GiftIcon } from './icons';
 
 const container = {
   hidden: { opacity: 0 },
@@ -79,10 +80,26 @@ export default function Hero() {
             src={`${import.meta.env.BASE_URL}images/Cuple.png`}
             alt={t('hero.coupleIllustrationAlt')}
             className="w-full h-auto block object-contain md:max-w-md md:mx-auto"
+            width={1408}
+            height={3040}
             loading="eager"
             whileHover={!shouldReduceMotion ? { scale: 1.03 } : undefined}
             transition={{ duration: duration.motion / 1000, ease: easing.soft }}
           />
+        </motion.div>
+
+        <motion.div variants={item} className="mt-6">
+          <motion.a
+            href="#gifts"
+            className="btn"
+            whileHover={!shouldReduceMotion ? { scale: 1.02 } : undefined}
+            whileTap={!shouldReduceMotion ? { scale: 0.98 } : undefined}
+          >
+            <span className="inline-flex items-center gap-2">
+              <GiftIcon />
+              {t('hero.giftsButton')}
+            </span>
+          </motion.a>
         </motion.div>
 
         <motion.div variants={item} className="w-full mt-5">
