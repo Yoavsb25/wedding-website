@@ -10,6 +10,7 @@ import RsvpEmbed from './components/RsvpEmbed';
 import Gifts from './components/Gifts';
 import EventSchema from './components/EventSchema';
 import { site } from './data/site';
+import LanguageSwitcher from './components/LanguageSwitcher';
 
 function App() {
   const shouldReduceMotion = useReducedMotion();
@@ -39,6 +40,7 @@ function App() {
   return (
     <>
       <EventSchema />
+      <LanguageSwitcher />
     <motion.div
       initial={shouldReduceMotion ? false : { opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
@@ -68,7 +70,7 @@ function App() {
         <Gifts />
       </main>
       <footer className="py-12 md:py-16 text-center bg-brand-900 text-brand-100 mt-16">
-        <p className="font-display text-2xl md:text-3xl uppercase tracking-widest">{site.coupleNames}</p>
+        <p className="font-display text-2xl md:text-3xl uppercase tracking-widest">{t('hero.coupleNames')}</p>
         <p className="text-brand-200 mt-2 text-sm md:text-base">{footerDate}</p>
         {site.socialUrl && (
           <a

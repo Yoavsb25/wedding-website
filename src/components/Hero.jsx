@@ -59,7 +59,7 @@ export default function Hero() {
           {t('hero.gettingMarried')}
         </motion.h1>
         <motion.p variants={item} className="font-display text-hero-sub text-brand-900 font-bold">
-          {site.coupleNames}
+          {t('hero.coupleNames')}
         </motion.p>
         <motion.p variants={item} className="font-display text-lg text-brand-800">
           {dateFormatted}
@@ -77,7 +77,7 @@ export default function Hero() {
         >
           <motion.img
             src={`${import.meta.env.BASE_URL}images/Cuple.png`}
-            alt="Illustration of the couple"
+            alt={t('hero.coupleIllustrationAlt')}
             className="w-full h-auto block object-contain md:max-w-md md:mx-auto"
             loading="eager"
             whileHover={!shouldReduceMotion ? { scale: 1.03 } : undefined}

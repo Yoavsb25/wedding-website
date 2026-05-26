@@ -8,10 +8,13 @@
     "gift": "Gift"
   },
   "hero": {
+    "pageTitle": "Maya & Yoav's Wedding",
+    "coupleNames": "Maya & Yoav",
     "gettingMarried": "We're Getting Married",
     "tagline": "Mark your calendars & RSVP",
     "rsvp": "RSVP Now",
-    "addToCalendar": "Add to Calendar"
+    "addToCalendar": "Add to Calendar",
+    "coupleIllustrationAlt": "Illustration of the couple"
   },
   "schedule": {
     "heading": "Schedule",
@@ -30,6 +33,7 @@
   },
   "parking": {
     "heading": "Parking",
+    "name": "Beit Hadar Parking Lot",
     "openMaps": "Open in Google Maps",
     "instructions": "There is no arrangement with any public parking in the area. The closest nearby parking is Beit Hadar Parking Lot, a short walk from the venue at 48 Rothschild Boulevard."
   },
@@ -46,15 +50,22 @@
     "note": "Gift details are below — <strong>bank transfer is preferred</strong>",
     "bankTransfer": "Bank Transfer",
     "preferred": "Preferred · no fees",
-    "quickPay": "or pay quickly with",
+    "quickPayLabel": "or pay quickly with",
     "bankName": "Bank Name",
+    "bankNameValue": "Discount Bank - 11",
     "bankCode": "Bank Code",
     "branch": "Branch",
     "accountNumber": "Account Number",
     "accountHolder": "Account Holder",
     "copy": "Copy",
     "copied": "Copied",
-    "copyLabel": "Copy {{label}}"
+    "copyLabel": "Copy {{label}}",
+    "quickPay": {
+      "maya-bit": "Maya's Bit",
+      "yoav-bit": "Yoav's Bit",
+      "maya-paybox": "Maya's PayBox",
+      "yoav-paybox": "Yoav's PayBox"
+    }
   },
   "share": {
     "label": "Share",

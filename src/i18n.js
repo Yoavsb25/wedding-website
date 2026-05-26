@@ -20,6 +20,7 @@ i18n.use(initReactI18next).init({
 const applyDir = (lng) => {
   document.documentElement.dir = lng === 'he' ? 'rtl' : 'ltr';
   document.documentElement.lang = lng;
+  document.title = i18n.t('hero.pageTitle');
   localStorage.setItem('lang', lng);
 };
 

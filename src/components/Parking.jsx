@@ -25,7 +25,7 @@ export default function Parking() {
           {t('parking.heading')}
         </motion.h2>
         <motion.div variants={fadeUpItem} className="card text-center space-y-6">
-          <p className="font-display text-xl text-brand-900">{site.parkingName}</p>
+          <p className="font-display text-xl text-brand-900">{t('parking.name')}</p>
           <p className="text-brand-800">{t('parking.instructions')}</p>
 
           <motion.a

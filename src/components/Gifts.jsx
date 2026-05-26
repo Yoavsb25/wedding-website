@@ -95,8 +95,7 @@ export default function Gifts() {
               </span>
             </div>
             <div className="px-6 py-5 bg-white/80">
-              <CopyField label={t('gifts.bankName')} value={gifts.bankName} />
-              <CopyField label={t('gifts.bankCode')} value={gifts.bankCode} />
+              <CopyField label={t('gifts.bankName')} value={t('gifts.bankNameValue')} />
               <CopyField label={t('gifts.branch')} value={gifts.branchNumber} />
               <CopyField label={t('gifts.accountNumber')} value={gifts.accountNumber} />
               <CopyField label={t('gifts.accountHolder')} value={gifts.accountHolder} />
@@ -114,7 +113,7 @@ export default function Gifts() {
           <div className="flex items-center gap-3 mb-5" aria-hidden="true">
             <span className="h-px flex-1 bg-brand-200/60" />
             <span className="text-xs text-brand-300 uppercase tracking-widest whitespace-nowrap">
-              {t('gifts.quickPay')}
+              {t('gifts.quickPayLabel')}
             </span>
             <span className="h-px flex-1 bg-brand-200/60" />
           </div>
@@ -126,7 +125,7 @@ export default function Gifts() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3 rounded-2xl border border-brand-200 bg-white/80 hover:border-brand-500 hover:bg-white px-4 py-3.5 text-sm font-medium text-brand-700 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-500"
-                aria-label={label}
+                aria-label={t(`gifts.quickPay.${id}`, { defaultValue: label })}
               >
                 <img
                   src={APP_LOGOS[app]}
@@ -134,7 +133,7 @@ export default function Gifts() {
                   aria-hidden="true"
                   className="w-8 h-8 rounded-xl object-cover shrink-0"
                 />
-                <span>{label}</span>
+                <span>{t(`gifts.quickPay.${id}`, { defaultValue: label })}</span>
               </a>
             ))}
           </div>

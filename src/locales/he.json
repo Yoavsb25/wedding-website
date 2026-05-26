@@ -8,10 +8,13 @@
     "gift": "מתנה"
   },
   "hero": {
+    "pageTitle": "החתונה של מאיה ויואב",
+    "coupleNames": "מאיה & יואב",
     "gettingMarried": "אנחנו מתחתנים",
     "tagline": "שמרו את התאריך ואשרו הגעה",
     "rsvp": "אישור הגעה",
-    "addToCalendar": "הוסיפו ליומן"
+    "addToCalendar": "הוסיפו ליומן",
+    "coupleIllustrationAlt": "איור של הזוג"
   },
   "schedule": {
     "heading": "לוח האירועים",
@@ -30,6 +33,7 @@
   },
   "parking": {
     "heading": "חניה",
+    "name": "בית הדר",
     "openMaps": "פתחו במפות",
     "instructions": "אין הסדר עם חניות ציבוריות באזור. החניון הקרוב ביותר הוא חניון בית הדר, במרחק הליכה קצר מהאולם ברחוב רוטשילד 48."
   },
@@ -46,15 +50,22 @@
     "note": "פרטי ההעברה למטה — <strong>העברה בנקאית עדיפה</strong>",
     "bankTransfer": "העברה בנקאית",
     "preferred": "מועדף · ללא עמלות",
-    "quickPay": "או שלמו מהר עם",
+    "quickPayLabel": "או שלמו מהר עם",
     "bankName": "שם הבנק",
+    "bankNameValue": "דיסקונט - 11",
     "bankCode": "קוד בנק",
     "branch": "סניף",
     "accountNumber": "מספר חשבון",
     "accountHolder": "שם בעל החשבון",
     "copy": "העתק",
     "copied": "הועתק",
-    "copyLabel": "העתק {{label}}"
+    "copyLabel": "העתק {{label}}",
+    "quickPay": {
+      "maya-bit": "ביט של מאיה",
+      "yoav-bit": "ביט של יואב",
+      "maya-paybox": "פיי-בוקס של מאיה",
+      "yoav-paybox": "פיי-בוקס של יואב"
+    }
   },
   "share": {
     "label": "שתפו",

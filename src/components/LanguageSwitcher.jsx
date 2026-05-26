@@ -13,14 +13,14 @@ export default function LanguageSwitcher() {
   const active = i18n.language;
 
   return (
-    <div className="fixed top-4 right-4 z-50 flex items-center backdrop-blur-md bg-white/10 border border-white/20 rounded-full shadow-md p-1 gap-0.5">
+    <div className="fixed top-4 right-4 z-50 flex items-center backdrop-blur-md bg-brand-900/85 border border-brand-700/60 rounded-full shadow-md p-1 gap-0.5">
       {LANGUAGES.map(({ code, label }) => (
         <button
           key={code}
           onClick={() => i18n.changeLanguage(code)}
           aria-pressed={active === code}
           className={`relative px-3 py-1.5 text-xs font-sans font-medium rounded-full transition-colors ${
-            active === code ? 'text-brand-900' : 'text-white/70 hover:text-white'
+            active === code ? 'text-brand-900' : 'text-brand-300 hover:text-white'
           }`}
         >
           {active === code && (

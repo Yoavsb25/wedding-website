@@ -8,10 +8,13 @@
     "gift": "Regalo"
   },
   "hero": {
+    "pageTitle": "El Casamiento de Maya y Yoav",
+    "coupleNames": "Maya & Yoav",
     "gettingMarried": "Nos Casamos",
     "tagline": "Marca tu calendario y RSVP",
     "rsvp": "RSVP Ahora",
-    "addToCalendar": "Agregar al Calendario"
+    "addToCalendar": "Agregar al Calendario",
+    "coupleIllustrationAlt": "Ilustración de la pareja"
   },
   "schedule": {
     "heading": "Programa",
@@ -30,6 +33,7 @@
   },
   "parking": {
     "heading": "Estacionamiento",
+    "name": "Beit Hadar Parking Lot",
     "openMaps": "Abrir en Google Maps",
     "instructions": "No hay arreglo con ningún estacionamiento público en el área. El estacionamiento más cercano es Beit Hadar Parking Lot, a corta distancia del lugar en Boulevard Rothschild 48."
   },
@@ -41,20 +45,27 @@
     "formTitle": "Formulario de RSVP"
   },
   "gifts": {
-    "heading": "Regalo de Boda",
+    "heading": "Regalo de Casamiento",
     "tagline": "Gracias por celebrar con nosotros ♡",
     "note": "Los detalles del regalo están abajo — <strong>la transferencia bancaria es preferida</strong>",
     "bankTransfer": "Transferencia Bancaria",
     "preferred": "Preferida · sin comisiones",
-    "quickPay": "o paga rápidamente con",
+    "quickPayLabel": "o paga rápidamente con",
     "bankName": "Nombre del Banco",
+    "bankNameValue": "Discount Bank - 11",
     "bankCode": "Código de Banco",
     "branch": "Sucursal",
     "accountNumber": "Número de Cuenta",
     "accountHolder": "Titular de la Cuenta",
     "copy": "Copiar",
     "copied": "Copiado",
-    "copyLabel": "Copiar {{label}}"
+    "copyLabel": "Copiar {{label}}",
+    "quickPay": {
+      "maya-bit": "Bit de Maya",
+      "yoav-bit": "Bit de Yoav",
+      "maya-paybox": "PayBox de Maya",
+      "yoav-paybox": "PayBox de Yoav"
+    }
   },
   "share": {
     "label": "Compartir",
@@ -77,6 +88,6 @@
   "footer": {
     "skipLink": "Saltar al contenido principal",
     "love": "© {{year}} – Con amor",
-    "instagramLabel": "Instagram o álbum de boda"
+    "instagramLabel": "Instagram o álbum de casamiento"
   }
 }
