@@ -4,15 +4,12 @@
     "schedule": "Schedule",
     "location": "Location",
     "parking": "Parking",
-    "rsvp": "RSVP",
     "gift": "Gift"
   },
   "hero": {
     "pageTitle": "Maya & Yoav's Wedding",
     "coupleNames": "Maya & Yoav",
     "gettingMarried": "We're Getting Married",
-    "tagline": "Mark your calendars & RSVP",
-    "rsvp": "RSVP Now",
     "addToCalendar": "Add to Calendar",
     "coupleIllustrationAlt": "Illustration of the couple"
   },
@@ -37,13 +34,6 @@
     "openMaps": "Open in Google Maps",
     "instructions": "There is no arrangement with any public parking in the area. The closest nearby parking is Beit Hadar Parking Lot, a short walk from the venue at 48 Rothschild Boulevard."
   },
-  "rsvp": {
-    "heading": "RSVP",
-    "note": "Please RSVP by May 1, 2026.",
-    "loading": "Loading RSVP form…",
-    "openTab": "Open form in new tab",
-    "formTitle": "RSVP form"
-  },
   "gifts": {
     "heading": "Wedding Gift",
     "tagline": "Thank you for celebrating with us ♡",
@@ -57,6 +47,11 @@
     "branch": "Branch",
     "accountNumber": "Account Number",
     "accountHolder": "Account Holder",
+    "whoseGuest": "Whose guest are you?",
+    "mayasGuest": "Maya's guest",
+    "yoavsGuest": "Yoav's guest",
+    "payboxPrompt": "Can't do a bank transfer?",
+    "bitPrompt": "Last resort — Bit",
     "copy": "Copy",
     "copied": "Copied",
     "copyLabel": "Copy {{label}}",

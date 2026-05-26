@@ -18,7 +18,7 @@ export default function EventSchema() {
         streetAddress: site.address,
       },
     },
-    description: `Wedding of ${site.coupleNames} at ${site.venueFullName}. ${site.rsvpNote || ''}`,
+    description: `Wedding of ${site.coupleNames} at ${site.venueFullName}.`,
   };
 
   return (

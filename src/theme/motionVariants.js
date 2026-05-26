@@ -10,7 +10,7 @@ export const fadeUp = {
   },
 };
 
-// Stagger container — used by Location, Parking, RsvpEmbed
+// Stagger container — used by Location, Parking
 export const staggerContainer = {
   hidden: { opacity: 0 },
   visible: {
@@ -19,7 +19,7 @@ export const staggerContainer = {
   },
 };
 
-// Stagger child item — used by Location, Parking, RsvpEmbed
+// Stagger child item — used by Location, Parking
 export const fadeUpItem = {
   hidden: { opacity: 0, y: 16 },
   visible: {

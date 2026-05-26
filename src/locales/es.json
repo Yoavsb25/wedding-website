@@ -4,15 +4,12 @@
     "schedule": "Programa",
     "location": "Ubicación",
     "parking": "Estacionamiento",
-    "rsvp": "RSVP",
     "gift": "Regalo"
   },
   "hero": {
     "pageTitle": "El Casamiento de Maya y Yoav",
     "coupleNames": "Maya & Yoav",
     "gettingMarried": "Nos Casamos",
-    "tagline": "Marca tu calendario y RSVP",
-    "rsvp": "RSVP Ahora",
     "addToCalendar": "Agregar al Calendario",
     "coupleIllustrationAlt": "Ilustración de la pareja"
   },
@@ -37,13 +34,6 @@
     "openMaps": "Abrir en Google Maps",
     "instructions": "No hay arreglo con ningún estacionamiento público en el área. El estacionamiento más cercano es Beit Hadar Parking Lot, a corta distancia del lugar en Boulevard Rothschild 48."
   },
-  "rsvp": {
-    "heading": "RSVP",
-    "note": "Por favor, RSVP antes del 1 de mayo de 2026.",
-    "loading": "Cargando formulario de RSVP…",
-    "openTab": "Abrir formulario en nueva pestaña",
-    "formTitle": "Formulario de RSVP"
-  },
   "gifts": {
     "heading": "Regalo de Casamiento",
     "tagline": "Gracias por celebrar con nosotros ♡",
@@ -57,6 +47,11 @@
     "branch": "Sucursal",
     "accountNumber": "Número de Cuenta",
     "accountHolder": "Titular de la Cuenta",
+    "whoseGuest": "¿De quién eres invitado/a?",
+    "mayasGuest": "Invitado/a de Maya",
+    "yoavsGuest": "Invitado/a de Yoav",
+    "payboxPrompt": "¿No podés hacer una transferencia bancaria?",
+    "bitPrompt": "Último recurso — Bit",
     "copy": "Copiar",
     "copied": "Copiado",
     "copyLabel": "Copiar {{label}}",
