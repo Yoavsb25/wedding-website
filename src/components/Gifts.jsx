@@ -178,7 +178,7 @@ export default function Gifts() {
               </span>
             </div>
             <div className="px-6 py-5 bg-white/80">
-              <CopyField label={t('gifts.bankName')} value={gifts.bankName} />
+              <CopyField label={t('gifts.bankName')} value={t('gifts.bankNameValue')} />
               <CopyField label={t('gifts.branch')} value={gifts.branchNumber} />
               <CopyField label={t('gifts.accountNumber')} value={gifts.accountNumber} />
               <CopyField label={t('gifts.accountHolder')} value={gifts.accountHolder} />
