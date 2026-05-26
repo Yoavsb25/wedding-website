@@ -47,6 +47,7 @@
     "branch": "Branch",
     "accountNumber": "Account Number",
     "accountHolder": "Account Holder",
+    "accountHolderValue": "Maya Amir, Yoav Sborovsky",
     "whoseGuest": "Whose guest are you?",
     "mayasGuest": "Maya's guest",
     "yoavsGuest": "Yoav's guest",

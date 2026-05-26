@@ -181,7 +181,7 @@ export default function Gifts() {
               <CopyField label={t('gifts.bankName')} value={t('gifts.bankNameValue')} />
               <CopyField label={t('gifts.branch')} value={gifts.branchNumber} />
               <CopyField label={t('gifts.accountNumber')} value={gifts.accountNumber} />
-              <CopyField label={t('gifts.accountHolder')} value={gifts.accountHolder} />
+              <CopyField label={t('gifts.accountHolder')} value={t('gifts.accountHolderValue')} />
             </div>
           </div>
         </motion.div>
