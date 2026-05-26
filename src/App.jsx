@@ -30,28 +30,24 @@ function App() {
       const el = document.querySelector(hash);
       if (el) el.scrollIntoView({ behavior: 'instant' });
     };
-    // React adds <img> elements after window.load fires, so they can still cause
-    // layout shifts when they decode. Wait for all pending images before scrolling.
-    const scrollAfterImages = () => {
+    // Two sources of layout shift after scroll: React-inserted images (not covered
+    // by window.load) and Google Fonts swap (display=swap reflows text on arrival).
+    // Wait for both before scrolling so the gifts section position is stable.
+    const scrollWhenLayoutStable = () => {
       const pending = Array.from(document.images).filter(img => !img.complete);
-      if (pending.length === 0) {
-        requestAnimationFrame(doScroll);
-      } else {
-        Promise.all(
-          pending.map(
-            img =>
-              new Promise(res => {
-                img.addEventListener('load', res, { once: true });
-                img.addEventListener('error', res, { once: true });
-              })
-          )
-        ).then(() => requestAnimationFrame(doScroll));
-      }
+      const imagesReady = Promise.all(
+        pending.map(img => new Promise(res => {
+          img.addEventListener('load', res, { once: true });
+          img.addEventListener('error', res, { once: true });
+        }))
+      );
+      Promise.all([imagesReady, document.fonts.ready])
+        .then(() => requestAnimationFrame(doScroll));
     };
     if (document.readyState === 'complete') {
-      scrollAfterImages();
+      scrollWhenLayoutStable();
     } else {
-      window.addEventListener('load', scrollAfterImages, { once: true });
+      window.addEventListener('load', scrollWhenLayoutStable, { once: true });
     }
   }, []);
 
