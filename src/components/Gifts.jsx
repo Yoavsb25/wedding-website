@@ -6,7 +6,6 @@ import { fadeUp } from '../theme/motionVariants';
 import { CopyIcon, CheckIcon } from './icons';
 
 const APP_LOGOS = {
-  bit: `${import.meta.env.BASE_URL}images/bit-logo.png`,
   paybox: `${import.meta.env.BASE_URL}images/paybox-logo.jpg`,
 };
 
@@ -122,13 +121,9 @@ export default function Gifts() {
 
   const [sideSelection, setSideSelection] = useState(null);
   const [payboxOpen, setPayboxOpen] = useState(false);
-  const [bitOpen, setBitOpen] = useState(false);
 
   const payboxEntry = gifts.quickPay.find(
     (e) => e.app === 'paybox' && e.side === sideSelection
-  );
-  const bitEntry = gifts.quickPay.find(
-    (e) => e.app === 'bit' && e.side === sideSelection
   );
 
   return (
@@ -204,17 +199,6 @@ export default function Gifts() {
             {payboxEntry && <PayLink entry={payboxEntry} />}
           </AccordionRow>
 
-          {/* Tier 3 — Bit */}
-          <AccordionRow
-            label={t('gifts.bitPrompt')}
-            open={bitOpen}
-            onToggle={() => setBitOpen((v) => !v)}
-          >
-            {sideSelection === null && (
-              <SideSelector value={sideSelection} onChange={setSideSelection} />
-            )}
-            {bitEntry && <PayLink entry={bitEntry} />}
-          </AccordionRow>
         </motion.div>
       </div>
     </section>

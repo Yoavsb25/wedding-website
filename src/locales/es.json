@@ -53,13 +53,10 @@
     "mayasGuest": "Invitado/a de Maya",
     "yoavsGuest": "Invitado/a de Yoav",
     "payboxPrompt": "¿No podés hacer una transferencia bancaria?",
-    "bitPrompt": "Último recurso — Bit",
     "copy": "Copiar",
     "copied": "Copiado",
     "copyLabel": "Copiar {{label}}",
     "quickPay": {
-      "maya-bit": "Bit de Maya",
-      "yoav-bit": "Bit de Yoav",
       "maya-paybox": "PayBox de Maya",
       "yoav-paybox": "PayBox de Yoav"
     }
