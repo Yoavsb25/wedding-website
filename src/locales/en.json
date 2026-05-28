@@ -53,13 +53,10 @@
     "mayasGuest": "Maya's guest",
     "yoavsGuest": "Yoav's guest",
     "payboxPrompt": "Can't do a bank transfer?",
-    "bitPrompt": "Last resort — Bit",
     "copy": "Copy",
     "copied": "Copied",
     "copyLabel": "Copy {{label}}",
     "quickPay": {
-      "maya-bit": "Maya's Bit",
-      "yoav-bit": "Yoav's Bit",
       "maya-paybox": "Maya's PayBox",
       "yoav-paybox": "Yoav's PayBox"
     }
