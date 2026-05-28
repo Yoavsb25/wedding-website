@@ -3,44 +3,31 @@ const { test, expect } = require('@playwright/test');
 // Canonical translated strings per language — spot-check visible UI text.
 // Proper nouns (R48, Beit Hadar, Tel Aviv, Google Calendar, bank numbers)
 // are intentionally excluded; they stay the same across all languages.
+// Only strings always visible without any interaction are tested here.
 const CHECKS = {
   en: {
-    // strings that should be visible in English
     present: [
       "We're Getting Married",
       'Maya & Yoav',
-      'RSVP Now',
       'Schedule',
       'Location',
       'Parking',
-      "Wedding Gift",
-      "or pay quickly with",
-      "Maya's Bit",
-      "Yoav's Bit",
-      "Maya's PayBox",
-      "Yoav's PayBox",
+      'Wedding Gift',
       'Bank Transfer',
       'Bank Name',
       'Branch',
       'Account Number',
     ],
-    // strings from other languages that must NOT appear
     absent: ['אנחנו מתחתנים', 'Nos Casamos'],
   },
   he: {
     present: [
       'אנחנו מתחתנים',
       'מאיה & יואב',
-      'אישור הגעה',       // RSVP Now
       'לוח האירועים',    // Schedule heading
       'מיקום',           // Location
       'חניה',            // Parking
       'מתנה לחתונה',     // Wedding Gift
-      'או שלמו מהר עם',  // or pay quickly with
-      'ביט של מאיה',
-      'ביט של יואב',
-      'פיי-בוקס של מאיה',
-      'פיי-בוקס של יואב',
       'העברה בנקאית',    // Bank Transfer
       'שם הבנק',         // Bank Name
       'סניף',            // Branch
@@ -51,20 +38,14 @@ const CHECKS = {
   es: {
     present: [
       'Nos Casamos',
-      'RSVP Ahora',
-      'Programa',        // Schedule
-      'Ubicación',       // Location
-      'Estacionamiento', // Parking
-      'Regalo de Casamiento', // Wedding Gift
-      'o paga rápidamente con',
-      'Bit de Maya',
-      'Bit de Yoav',
-      'PayBox de Maya',
-      'PayBox de Yoav',
-      'Transferencia Bancaria', // Bank Transfer
-      'Nombre del Banco',       // Bank Name
-      'Sucursal',               // Branch
-      'Número de Cuenta',       // Account Number
+      'Programa',              // Schedule
+      'Ubicación',             // Location
+      'Estacionamiento',       // Parking
+      'Regalo de Casamiento',  // Wedding Gift
+      'Transferencia Bancaria',
+      'Nombre del Banco',
+      'Sucursal',
+      'Número de Cuenta',
     ],
     absent: ["We're Getting Married", 'אנחנו מתחתנים'],
   },

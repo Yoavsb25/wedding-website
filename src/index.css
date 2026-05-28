@@ -7,10 +7,7 @@
     scroll-behavior: smooth;
   }
 
-  html.hash-scroll-active {
-    overflow-anchor: none;
-    scroll-behavior: auto;
-  }
+
 }
 
 @layer components {

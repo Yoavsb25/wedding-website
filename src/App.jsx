@@ -1,4 +1,4 @@
-import { useLayoutEffect } from 'react';
+import { useEffect, useLayoutEffect } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import { duration, easing } from './theme/tokens';
@@ -11,46 +11,6 @@ import EventSchema from './components/EventSchema';
 import { site } from './data/site';
 import LanguageSwitcher from './components/LanguageSwitcher';
 
-const HASH_SCROLL_SETTLE_MS = 2500;
-const HASH_SCROLL_MAX_WAIT_MS = 10000;
-const HASH_SCROLL_TOLERANCE_PX = 1;
-
-function getHashTarget() {
-  const id = window.location.hash.slice(1);
-  if (!id) return null;
-
-  try {
-    return document.getElementById(decodeURIComponent(id));
-  } catch {
-    return document.getElementById(id);
-  }
-}
-
-function waitForHashLayoutInputs(target) {
-  const imagesBeforeTarget = Array.from(document.images).filter((img) => {
-    if (img.complete || img.loading === 'lazy') return false;
-    return Boolean(img.compareDocumentPosition(target) & Node.DOCUMENT_POSITION_FOLLOWING);
-  });
-
-  const imagesReady = Promise.all(
-    imagesBeforeTarget.map((img) => new Promise((resolve) => {
-      img.addEventListener('load', resolve, { once: true });
-      img.addEventListener('error', resolve, { once: true });
-    }))
-  );
-
-  const fontsReady = document.fonts?.ready ?? Promise.resolve();
-  return Promise.allSettled([imagesReady, fontsReady]);
-}
-
-function withTimeout(promise, ms) {
-  return Promise.race([
-    promise,
-    new Promise((resolve) => {
-      window.setTimeout(resolve, ms);
-    }),
-  ]);
-}
 
 function App() {
   const shouldReduceMotion = useReducedMotion();
@@ -61,64 +21,47 @@ function App() {
     { day: 'numeric', month: 'long', year: 'numeric' }
   );
 
+  // Set scrollRestoration before paint so the browser can't restore a prior
+  // scroll position before our hash-scroll effect runs.
   useLayoutEffect(() => {
-    if ('scrollRestoration' in history) {
-      history.scrollRestoration = 'manual';
-    }
-
-    if (!window.location.hash) return undefined;
-
-    let frameId;
-    let cancelled = false;
-    const root = document.documentElement;
-
-    const scrollToTarget = (target) => {
-      const top = target.getBoundingClientRect().top + window.scrollY;
-      if (Math.abs(target.getBoundingClientRect().top) > HASH_SCROLL_TOLERANCE_PX) {
-        window.scrollTo({ top, left: 0, behavior: 'auto' });
-      }
-    };
-
-    const keepTargetAligned = () => {
-      const target = getHashTarget();
-      if (!target || cancelled) return;
-
-      root.classList.add('hash-scroll-active');
-
-      const tick = (stopAt) => {
-        if (cancelled) return;
-
-        scrollToTarget(target);
-
-        if (performance.now() < stopAt) {
-          frameId = requestAnimationFrame(() => tick(stopAt));
-        } else {
-          root.classList.remove('hash-scroll-active');
-        }
-      };
-
-      withTimeout(waitForHashLayoutInputs(target), HASH_SCROLL_MAX_WAIT_MS).then(() => {
-        if (cancelled) return;
-        const stopAt = performance.now() + HASH_SCROLL_SETTLE_MS;
-        frameId = requestAnimationFrame(() => tick(stopAt));
-      });
-    };
-
-    frameId = requestAnimationFrame(keepTargetAligned);
-
-    return () => {
-      cancelled = true;
-      root.classList.remove('hash-scroll-active');
-      cancelAnimationFrame(frameId);
-    };
+    if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   }, []);
+
+  useEffect(() => {
+    const id = window.location.hash.slice(1);
+    if (!id) return;
+
+    const scroll = () => {
+      const el = (() => {
+        try { return document.getElementById(decodeURIComponent(id)); } catch { return document.getElementById(id); }
+      })();
+      if (!el) return;
+      // Inline style beats CSS scroll-behavior:smooth — Safari ignores
+      // behavior:'instant' on the JS API when the CSS property is set.
+      const html = document.documentElement;
+      html.style.scrollBehavior = 'auto';
+      el.scrollIntoView({ block: 'start', behavior: 'instant' });
+      requestAnimationFrame(() => { html.style.scrollBehavior = ''; });
+    };
+
+    if (document.readyState === 'complete') {
+      scroll();
+    } else {
+      window.addEventListener('load', scroll, { once: true });
+      return () => window.removeEventListener('load', scroll);
+    }
+  }, []);
+
+  // Skip the y-shift on hash navigation — the entry transform causes scrollIntoView
+  // to overshoot by the transform amount, leaving the section misaligned.
+  const hasHash = Boolean(window.location.hash);
 
   return (
     <>
       <EventSchema />
       <LanguageSwitcher />
     <motion.div
-      initial={shouldReduceMotion ? false : { opacity: 0, y: 8 }}
+      initial={shouldReduceMotion ? false : hasHash ? { opacity: 0 } : { opacity: 0, y: 8 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{
         duration: duration.motion / 1000,

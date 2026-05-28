@@ -1,4 +1,4 @@
-const { defineConfig } = require('@playwright/test');
+const { defineConfig, devices } = require('@playwright/test');
 
 module.exports = defineConfig({
   testDir: './tests',
@@ -6,6 +6,10 @@ module.exports = defineConfig({
     baseURL: 'http://localhost:4173',
     headless: true,
   },
+  projects: [
+    { name: 'chromium', use: { ...devices['Desktop Chrome'] } },
+    { name: 'webkit',   use: { ...devices['Desktop Safari'] } },
+  ],
   webServer: {
     command: 'npm run build && npm run preview',
     url: 'http://localhost:4173',
