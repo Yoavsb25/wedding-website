@@ -53,13 +53,10 @@
     "mayasGuest": "אורח/ת של מאיה",
     "yoavsGuest": "אורח/ת של יואב",
     "payboxPrompt": "לא יכולים העברה בנקאית?",
-    "bitPrompt": "אפשרות אחרונה — ביט",
     "copy": "העתק",
     "copied": "הועתק",
     "copyLabel": "העתק {{label}}",
     "quickPay": {
-      "maya-bit": "ביט של מאיה",
-      "yoav-bit": "ביט של יואב",
       "maya-paybox": "פיי-בוקס של מאיה",
       "yoav-paybox": "פיי-בוקס של יואב"
     }
