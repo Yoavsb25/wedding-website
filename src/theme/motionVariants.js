@@ -1,6 +1,5 @@
 import { duration, easing } from './tokens';
 
-// Standalone fade-up — used on individual motion elements (Gifts)
 export const fadeUp = {
   hidden: { opacity: 0, y: 20 },
   visible: {

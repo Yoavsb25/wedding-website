@@ -4,15 +4,14 @@
     "schedule": "Programa",
     "location": "Ubicación",
     "parking": "Estacionamiento",
-    "gift": "Regalo"
+    "photos": "Fotos"
   },
   "hero": {
     "pageTitle": "El Casamiento de Maya y Yoav",
     "coupleNames": "Maya & Yoav",
     "gettingMarried": "Nos Casamos",
     "addToCalendar": "Agregar al Calendario",
-    "coupleIllustrationAlt": "Ilustración de la pareja",
-    "giftsButton": "Regalos"
+    "coupleIllustrationAlt": "Ilustración de la pareja"
   },
   "schedule": {
     "heading": "Programa",
@@ -35,32 +34,6 @@
     "openMaps": "Abrir en Google Maps",
     "instructions": "No hay arreglo con ningún estacionamiento público en el área. El estacionamiento más cercano es Beit Hadar Parking Lot, a corta distancia del lugar en Boulevard Rothschild 48."
   },
-  "gifts": {
-    "heading": "Regalo de Casamiento",
-    "tagline": "Gracias por celebrar con nosotros ♡",
-    "note": "Los detalles del regalo están abajo — <strong>la transferencia bancaria es preferida</strong>",
-    "bankTransfer": "Transferencia Bancaria",
-    "preferred": "Preferida · sin comisiones",
-    "quickPayLabel": "o paga rápidamente con",
-    "bankName": "Nombre del Banco",
-    "bankNameValue": "Discount Bank - 11",
-    "bankCode": "Código de Banco",
-    "branch": "Sucursal",
-    "accountNumber": "Número de Cuenta",
-    "accountHolder": "Titular de la Cuenta",
-    "accountHolderValue": "Maya Amir, Yoav Sborovsky",
-    "whoseGuest": "¿De quién eres invitado/a?",
-    "mayasGuest": "Invitado/a de Maya",
-    "yoavsGuest": "Invitado/a de Yoav",
-    "payboxPrompt": "¿No podés hacer una transferencia bancaria?",
-    "copy": "Copiar",
-    "copied": "Copiado",
-    "copyLabel": "Copiar {{label}}",
-    "quickPay": {
-      "maya-paybox": "PayBox de Maya",
-      "yoav-paybox": "PayBox de Yoav"
-    }
-  },
   "share": {
     "label": "Compartir",
     "ariaLabel": "Compartir esta página",
@@ -78,6 +51,18 @@
     "hours": "horas",
     "minutes": "minutos",
     "seconds": "segundos"
+  },
+  "photos": {
+    "heading": "Fotos",
+    "wedding": "Casamiento",
+    "poolParty": "Fiesta en la Pileta",
+    "viewAll": "Ver todas en Google Photos",
+    "viewFullAlbum": "Ver álbum completo →",
+    "close": "Cerrar",
+    "weddingFeaturedAlt": "Foto de casamiento",
+    "weddingThumbAlt": "Foto de casamiento {{n}}",
+    "poolPartyFeaturedAlt": "Foto de la fiesta en la pileta",
+    "poolPartyThumbAlt": "Foto de la fiesta en la pileta {{n}}"
   },
   "footer": {
     "skipLink": "Saltar al contenido principal",

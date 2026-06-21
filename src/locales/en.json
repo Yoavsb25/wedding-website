@@ -4,15 +4,14 @@
     "schedule": "Schedule",
     "location": "Location",
     "parking": "Parking",
-    "gift": "Gift"
+    "photos": "Photos"
   },
   "hero": {
     "pageTitle": "Maya & Yoav's Wedding",
     "coupleNames": "Maya & Yoav",
     "gettingMarried": "We're Getting Married",
     "addToCalendar": "Add to Calendar",
-    "coupleIllustrationAlt": "Illustration of the couple",
-    "giftsButton": "Wedding Gift"
+    "coupleIllustrationAlt": "Illustration of the couple"
   },
   "schedule": {
     "heading": "Schedule",
@@ -35,32 +34,6 @@
     "openMaps": "Open in Google Maps",
     "instructions": "There is no arrangement with any public parking in the area. The closest nearby parking is Beit Hadar Parking Lot, a short walk from the venue at 48 Rothschild Boulevard."
   },
-  "gifts": {
-    "heading": "Wedding Gift",
-    "tagline": "Thank you for celebrating with us ♡",
-    "note": "Gift details are below — <strong>bank transfer is preferred</strong>",
-    "bankTransfer": "Bank Transfer",
-    "preferred": "Preferred · no fees",
-    "quickPayLabel": "or pay quickly with",
-    "bankName": "Bank Name",
-    "bankNameValue": "Discount Bank - 11",
-    "bankCode": "Bank Code",
-    "branch": "Branch",
-    "accountNumber": "Account Number",
-    "accountHolder": "Account Holder",
-    "accountHolderValue": "Maya Amir, Yoav Sborovsky",
-    "whoseGuest": "Whose guest are you?",
-    "mayasGuest": "Maya's guest",
-    "yoavsGuest": "Yoav's guest",
-    "payboxPrompt": "Can't do a bank transfer?",
-    "copy": "Copy",
-    "copied": "Copied",
-    "copyLabel": "Copy {{label}}",
-    "quickPay": {
-      "maya-paybox": "Maya's PayBox",
-      "yoav-paybox": "Yoav's PayBox"
-    }
-  },
   "share": {
     "label": "Share",
     "ariaLabel": "Share this page",
@@ -78,6 +51,18 @@
     "hours": "hours",
     "minutes": "minutes",
     "seconds": "seconds"
+  },
+  "photos": {
+    "heading": "Photos",
+    "wedding": "Wedding",
+    "poolParty": "Pool Party",
+    "viewAll": "View all in Google Photos",
+    "viewFullAlbum": "View full album →",
+    "close": "Close",
+    "weddingFeaturedAlt": "Wedding photo",
+    "weddingThumbAlt": "Wedding photo {{n}}",
+    "poolPartyFeaturedAlt": "Pool party photo",
+    "poolPartyThumbAlt": "Pool party photo {{n}}"
   },
   "footer": {
     "skipLink": "Skip to main content",

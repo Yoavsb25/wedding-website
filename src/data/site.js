@@ -22,23 +22,37 @@ export const site = {
   /** Parking instructions for guests */
   parkingInstructions:
     'There is no arrangement with any public parking in the area. The closest nearby parking is Beit Hadar Parking Lot, a short walk from the venue at 48 Rothschild Boulevard.',
-  /** Editorial paragraph copy — move these strings without touching JSX */
-  copy: {
-    gifts: {
-      tagline: "Thank you for celebrating with us ♡",
-      note: "<strong>Bank transfer is preferred.</strong>",
+  /** Photo albums for the Photos section */
+  photos: {
+    wedding: {
+      format: 'jpg',
+      albumUrl: 'https://photos.app.goo.gl/3avovSBdRE2qmePk9',
+      images: {
+        featured: '/images/photos/wedding/featured',
+        thumbs: [
+          '/images/photos/wedding/thumb-1',
+          '/images/photos/wedding/thumb-2',
+          '/images/photos/wedding/thumb-3',
+          '/images/photos/wedding/thumb-4',
+          '/images/photos/wedding/thumb-5',
+          '/images/photos/wedding/thumb-6',
+        ],
+      },
     },
-  },
-  /** Bank transfer & quick-pay details for the Gifts section */
-  gifts: {
-    accountHolder: 'מאיה אמיר, יואב סבורובסקי',
-    bankName: 'Discount Bank - 11',
-    bankCode: '11',
-    branchNumber: '198',
-    accountNumber: '252774436',
-    quickPay: [
-      { id: 'maya-paybox', label: "PayBox", app: 'paybox', side: 'maya', url: 'https://links.payboxapp.com/w7v0RQfQ0Ub' },
-      { id: 'yoav-paybox', label: "PayBox", app: 'paybox', side: 'yoav', url: 'https://links.payboxapp.com/JU2fa3esZUb' },
-    ],
+    poolParty: {
+      format: 'jpg',
+      albumUrl: 'https://drive.google.com/drive/folders/1QBWVrbHR7jrWVy0KSd7HzchtgXwXJFDK?usp=sharing',
+      images: {
+        featured: '/images/photos/pool-party/featured',
+        thumbs: [
+          '/images/photos/pool-party/thumb-1',
+          '/images/photos/pool-party/thumb-2',
+          '/images/photos/pool-party/thumb-3',
+          '/images/photos/pool-party/thumb-4',
+          '/images/photos/pool-party/thumb-5',
+          '/images/photos/pool-party/thumb-6',
+        ],
+      },
+    },
   },
 };

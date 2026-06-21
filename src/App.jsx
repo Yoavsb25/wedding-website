@@ -6,7 +6,7 @@ import Hero from './components/Hero';
 import Schedule from './components/Schedule';
 import Location from './components/Location';
 import Parking from './components/Parking';
-import Gifts from './components/Gifts';
+import Photos from './components/Photos';
 import EventSchema from './components/EventSchema';
 import { site } from './data/site';
 import LanguageSwitcher from './components/LanguageSwitcher';
@@ -84,7 +84,7 @@ function App() {
         <div className="section-divider mx-auto max-w-[700px]" aria-hidden="true" />
         <Parking />
         <div className="section-divider mx-auto max-w-[700px]" aria-hidden="true" />
-        <Gifts />
+        <Photos />
       </main>
       <footer className="py-12 md:py-16 text-center bg-brand-900 text-brand-100 mt-16">
         <p className="font-display text-2xl md:text-3xl uppercase tracking-widest">{t('hero.coupleNames')}</p>
@@ -109,7 +109,7 @@ function App() {
           <span className="text-brand-600" aria-hidden="true">|</span>
           <a href="#parking" className="text-brand-300 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 rounded px-2 py-2 min-h-[44px] inline-flex items-center">{t('nav.parking')}</a>
           <span className="text-brand-600" aria-hidden="true">|</span>
-          <a href="#gifts" className="text-brand-300 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 rounded px-2 py-2 min-h-[44px] inline-flex items-center">{t('nav.gift')}</a>
+          <a href="#photos" className="text-brand-300 hover:text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 rounded px-2 py-2 min-h-[44px] inline-flex items-center">{t('nav.photos')}</a>
         </nav>
         <p className="mt-8 text-brand-500 text-xs">{t('footer.love', { year: new Date().getFullYear() })}</p>
       </footer>
