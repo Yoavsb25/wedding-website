@@ -16,8 +16,8 @@ function EventBlock({ eventKey, titleKey, data }) {
   const featuredSrc = `${base}${data.images.featured.replace(/^\//, '')}.${ext}`;
   const thumbSrcs = data.images.thumbs.map((p) => `${base}${p.replace(/^\//, '')}.${ext}`);
 
-  const featuredAltKey = eventKey === 'wedding' ? 'photos.weddingFeaturedAlt' : 'photos.poolPartyFeaturedAlt';
-  const thumbAltKey = eventKey === 'wedding' ? 'photos.weddingThumbAlt' : 'photos.poolPartyThumbAlt';
+  const featuredAltKey = `photos.${eventKey}FeaturedAlt`;
+  const thumbAltKey = `photos.${eventKey}ThumbAlt`;
 
   return (
     <div>
@@ -108,6 +108,8 @@ export default function Photos() {
         </motion.div>
 
         <EventBlock eventKey="wedding" titleKey="photos.wedding" data={site.photos.wedding} />
+        <div className="section-divider mx-auto max-w-[700px] my-12" aria-hidden="true" />
+        <EventBlock eventKey="filmCamera" titleKey="photos.filmCamera" data={site.photos.filmCamera} />
         <div className="section-divider mx-auto max-w-[700px] my-12" aria-hidden="true" />
         <EventBlock eventKey="poolParty" titleKey="photos.poolParty" data={site.photos.poolParty} />
       </div>

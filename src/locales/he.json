@@ -62,7 +62,10 @@
     "weddingFeaturedAlt": "תמונה מהחתונה",
     "weddingThumbAlt": "תמונה מהחתונה {{n}}",
     "poolPartyFeaturedAlt": "תמונה ממסיבת הבריכה",
-    "poolPartyThumbAlt": "תמונה ממסיבת הבריכה {{n}}"
+    "poolPartyThumbAlt": "תמונה ממסיבת הבריכה {{n}}",
+    "filmCamera": "מצלמת פילם",
+    "filmCameraFeaturedAlt": "תמונה ממצלמת פילם",
+    "filmCameraThumbAlt": "תמונה ממצלמת פילם {{n}}"
   },
   "footer": {
     "skipLink": "דלגו לתוכן הראשי",

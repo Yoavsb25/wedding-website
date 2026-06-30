@@ -54,5 +54,20 @@ export const site = {
         ],
       },
     },
+    filmCamera: {
+      format: 'JPG',
+      albumUrl: 'https://drive.google.com/drive/u/0/folders/1XUBw3fmJ9hKgj9C7OaBhgz42TE9tIUmC',
+      images: {
+        featured: '/images/photos/film-camera/featured',
+        thumbs: [
+          '/images/photos/film-camera/thumb-1',
+          '/images/photos/film-camera/thumb-2',
+          '/images/photos/film-camera/thumb-3',
+          '/images/photos/film-camera/thumb-4',
+          '/images/photos/film-camera/thumb-5',
+          '/images/photos/film-camera/thumb-6',
+        ],
+      },
+    },
   },
 };

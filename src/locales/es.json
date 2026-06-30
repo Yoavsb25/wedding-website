@@ -62,7 +62,10 @@
     "weddingFeaturedAlt": "Foto de casamiento",
     "weddingThumbAlt": "Foto de casamiento {{n}}",
     "poolPartyFeaturedAlt": "Foto de la fiesta en la pileta",
-    "poolPartyThumbAlt": "Foto de la fiesta en la pileta {{n}}"
+    "poolPartyThumbAlt": "Foto de la fiesta en la pileta {{n}}",
+    "filmCamera": "Cámara de Película",
+    "filmCameraFeaturedAlt": "Foto de cámara de película",
+    "filmCameraThumbAlt": "Foto de cámara de película {{n}}"
   },
   "footer": {
     "skipLink": "Saltar al contenido principal",

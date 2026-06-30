@@ -62,7 +62,10 @@
     "weddingFeaturedAlt": "Wedding photo",
     "weddingThumbAlt": "Wedding photo {{n}}",
     "poolPartyFeaturedAlt": "Pool party photo",
-    "poolPartyThumbAlt": "Pool party photo {{n}}"
+    "poolPartyThumbAlt": "Pool party photo {{n}}",
+    "filmCamera": "Film Camera",
+    "filmCameraFeaturedAlt": "Film camera photo",
+    "filmCameraThumbAlt": "Film camera photo {{n}}"
   },
   "footer": {
     "skipLink": "Skip to main content",
