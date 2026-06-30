@@ -35,7 +35,7 @@ export const countdownCopy = [
   {
     daysMin: -Infinity,
     daysMax: -1,
-    phrases: ["We did!"],
+    phrases: ["We said 'I do'!"],
     emoji: '',
   },
 ];
